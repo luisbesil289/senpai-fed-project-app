@@ -13,7 +13,7 @@ class App extends React.Component {
     });
   }
 
-  goToNew = () => {
+  goToRace = () => {
     this.setState({
       section: 2
     });
@@ -46,7 +46,7 @@ class App extends React.Component {
   }
 
   currentSection() {
-
+    
   }
 
   render() {
@@ -63,7 +63,7 @@ class App extends React.Component {
                 <a className="nav-link" href="index.html">HOME <span className="sr-only"></span></a>
               </li>
               <li className="nav-item active">
-                <a className="nav-link" href="race.html">RACE <span className="sr-only"></span></a>
+                <a className="nav-link" href="race.js">RACE <span className="sr-only"></span></a>
               </li>
               <li className="nav-item active">
                 <a className="nav-link" href="fly.html">FLY <span className="sr-only"></span></a>
