@@ -1,16 +1,90 @@
 import React from 'react';
 import './App.css';
-import Barra from './Barra';
+import NavBar from './NavBar';
 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-       <Barra />
-      </header>
-    </div>
-  );
+
+
+class App extends React.Component {
+
+
+  goToHome = () => {
+    this.setState({
+      section: 1
+    });
+  }
+
+  goToNew = () => {
+    this.setState({
+      section: 2
+    });
+  }
+
+  goToAnimal = (unAnimal) => {
+    this.setState({
+      section: 3,
+      unAnimal: unAnimal
+    });
+  }
+
+  goToWishlist = () => {
+    this.setState({
+      section: 4
+    });
+  }
+
+  goToBlog = () => {
+    this.setState({
+      section: 5
+    });
+  }
+
+  goToFelicidades = (animal) => {
+    this.setState({
+      section: 6,
+      animal: animal
+    });
+  }
+
+  currentSection() {
+
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <NavBar />
+        <nav className="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
+          <img src="assets/logo.png" alt="" height="36" width="90"></img>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="menuHorizontal collapse navbar-collapse" id="collapsibleNavbar">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item active">
+                <a className="nav-link" href="index.html">HOME <span className="sr-only"></span></a>
+              </li>
+              <li className="nav-item active">
+                <a className="nav-link" href="race.html">RACE <span className="sr-only"></span></a>
+              </li>
+              <li className="nav-item active">
+                <a className="nav-link" href="fly.html">FLY <span className="sr-only"></span></a>
+              </li>
+              <li className="nav-item active">
+                <a className="nav-link" href="shop.html">SHOP <span className="sr-only"></span></a>
+              </li>
+            </ul>
+            <div className="login-container" data-toggle="collapse">
+            </div>
+          </div>
+        </nav>
+        <hr />
+        {this.currentSection()}
+      </div>
+    )
+  }
 }
-
 export default App;
+
+
+
