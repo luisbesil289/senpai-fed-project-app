@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import NavBar from './NavBar';
 
 
 
@@ -53,8 +52,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <NavBar />
-        <nav className="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
+       <nav className="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
           <img src="assets/logo.png" alt="" height="36" width="90"></img>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span className="navbar-toggler-icon"></span>
