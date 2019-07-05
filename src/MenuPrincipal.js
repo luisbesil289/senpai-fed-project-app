@@ -17,7 +17,7 @@ class MenuPrincipal extends React.Component {
                                     <a className="nav-link" href="#Lists" onClick={this.goToHome}>Home</a>
                                 </li>
                                 <li className="nav-item active">
-                                    <a className="nav-link" href="#NewAnimal" onClick={this.goToNew}>Nuevo Animal</a>
+                                    <a className="nav-link" href="#NewAnimal" onClick={this.goToNew}>Race</a>
                                 </li>
                                 <li className="nav-item active">
                                     <a className="nav-link" href="#Wishlist" onClick={this.goToWishlist}>Wishlist <span className="sr-only"></span></a>
