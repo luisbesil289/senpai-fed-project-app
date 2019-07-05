@@ -4,33 +4,34 @@ import './MenuPrincipal.css';
 class MenuPrincipal extends React.Component {
     render() {
         return (
-            <div className="App">
-                <div className="App">
-                    <nav className="navbar navbar-expand-md fixed-top bg-dark navbar-dark" id="menuPrincipal">
-                        <a className="navbar-brand" href="/Lists"><img src="assets/Logo-02.png" alt="Smiley face" height={53} width={70}></img></a>
-                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="menuHorizontal collapse navbar-collapse" id="collapsibleNavbar">
-                            <ul className="navbar-nav mr-auto">
-                                <li className="nav-item active">
-                                    <a className="nav-link" href="#Lists" onClick={this.goToHome}>Home</a>
-                                </li>
-                                <li className="nav-item active">
-                                    <a className="nav-link" href="#NewAnimal" onClick={this.goToNew}>Race</a>
-                                </li>
-                                <li className="nav-item active">
-                                    <a className="nav-link" href="#Wishlist" onClick={this.goToWishlist}>Wishlist <span className="sr-only"></span></a>
-                                </li>
-                                <li className="nav-item active">
-                                    <a className="nav-link" href="#ListBlogs" onClick={this.goToBlog}>Blog <span className="sr-only"></span></a>
-                                </li>
-                            </ul>
-                            <button className="LogIn btn btn-outline-light" type="submit"> LogIn - Register</button>
+            <div className="App">               
+                <nav className="navbar navbar-expand-md fixed-top bg-dark navbar-dark" id="menuPrincipal">
+                    <a className="navbar-brand" href="/Lists"><img src="assets/logo.png" alt="Smiley face" height={53} width={70}></img></a>
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="menuHorizontal collapse navbar-collapse" id="collapsibleNavbar">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="index.html">HOME <span class="sr-only"></span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="race.html">RACE <span class="sr-only"></span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="fly.html">FLY <span class="sr-only"></span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="shop.html">SHOP <span class="sr-only"></span></a>
+                            </li>
+                        </ul>
+                        <div class="login-container" data-toggle="collapse">
+
                         </div>
-                    </nav>
-                </div>
+                    </div>
+                </nav>
             </div>
+
         )
     }
 }
