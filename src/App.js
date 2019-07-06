@@ -2,7 +2,7 @@ import React from 'react';
 import AppContext from './AppContext';
 import './App.css';
 import MenuPrincipal from './MenuPrincipal';
-
+import Footer from '/Footer';
 
 
 class App extends React.Component {
@@ -23,7 +23,7 @@ class App extends React.Component {
           </main>
         </AppContext.Provider>
 
-
+        <Footer />
       </div>
     )
   }
