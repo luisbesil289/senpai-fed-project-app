@@ -3,7 +3,9 @@ import './MenuPrincipal.css';
 
 class MenuPrincipal extends React.Component {
     render() {
+       
         return (
+
             <div className="App">
                 <nav className="navbar navbar-expand-md fixed-top bg-dark navbar-dark" id="menuPrincipal">
                     <a className="navbar-brand" href="/Lists"><img src="assets/logo.png" alt="Smiley face" height={53} width={70}></img></a>
@@ -13,10 +15,10 @@ class MenuPrincipal extends React.Component {
                     <div className="menuHorizontal collapse navbar-collapse" id="collapsibleNavbar">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item active">
-                                <a className="nav-link" href="index.html">HOME <span className="sr-only"></span></a>
+                                <a className="nav-link" href="#Home" onClick={(e) => this.props.goToMenu(2, e)}>HOME <span className="sr-only"></span></a>
                             </li>
                             <li className="nav-item active">
-                                <a className="nav-link" href="race.html">RACE <span className="sr-only"></span></a>
+                                <a className="nav-link" href="#Race" onClick={(e) => this.props.goToMenu(3, e)}>RACE <span className="sr-only"></span></a>
                             </li>
                             <li className="nav-item active">
                                 <a className="nav-link" href="fly.html">FLY <span className="sr-only"></span></a>

@@ -15,24 +15,29 @@ class App extends React.Component {
     });
   }
 
-  goToHome = () => {
-    this.setState({
-      section: 1
-    });
-  }
-
-  goToNew = () => {
-    this.setState({
-      section: 2
-    });
+  goToMenu = (option) => { //recorre las opciones del Menu
+    switch (option) {
+      case 2:
+        this.setState({
+          section: 2
+        });
+        break;
+      case 3:
+        this.setState({
+          section: 3
+        });
+        break;
+      default:
+        return 1;
+    }
   }
 
   currentSection() {
-    if (this.state.section === 1) {
+    if (this.state.section === 2) {
       return <Home />;
     }
 
-    if (this.state.section === 2) {
+    if (this.state.section === 3) {
       return <Race />;
     }
   }
@@ -41,7 +46,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <header>
-          <MenuPrincipal />
+          <MenuPrincipal goToMenu={this.goToMenu} />
         </header>
         <AppContext.Provider value={{
           products: [],
