@@ -8,7 +8,7 @@ class MenuPrincipal extends React.Component {
 
             <div className="App">
                 <nav className="navbar navbar-expand-md fixed-top bg-dark navbar-dark" id="menuPrincipal">
-                    <a className="navbar-brand" href="/Lists"><img src="assets/logo.png" alt="Smiley face" height={53} width={70}></img></a>
+                    <a className="navbar-brand" href=""><img src="assets/logo.png" alt="Smiley face" height={53} width={70}></img></a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                         <span className="navbar-toggler-icon"></span>
                     </button>

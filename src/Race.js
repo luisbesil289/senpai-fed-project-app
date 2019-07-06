@@ -10,7 +10,7 @@ class Race extends React.Component {
                <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-sm-12 col-md-6">
-                        <img src="assets/youtube.jpg" className="logo img-responsive" alt="" title=""></img>
+                        <img src="assets/listoff.png" id="img_p2"></img>
                         </div>
                         <div className="col-sm-12 col-md-6">
                             <h2>AUGUST 11, 2019. GET READY.</h2>
@@ -47,7 +47,7 @@ class Race extends React.Component {
                                 <div className="row">
                                     <div className="col-sm-5 col-md-5">
                                         <div className="">
-                                            <img className="card_image" src="assets/A_nub.jpg"></img>
+                                        <img src="assets/A_nub.jpg" className="logo img-responsive" alt="Pilot" title="Pilot"></img>
                                         </div>
                                     </div>
                                     <div className="col-sm-7 col-md-7">
