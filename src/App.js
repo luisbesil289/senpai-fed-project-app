@@ -2,7 +2,7 @@ import React from 'react';
 import AppContext from './AppContext';
 import './App.css';
 import MenuPrincipal from './MenuPrincipal';
-import Home from './Home';
+import Home from './Header';
 import Race from './Race';
 import Footer from './Footer';
 
@@ -34,7 +34,7 @@ class App extends React.Component {
 
   currentSection() {
     if (this.state.section === 2) {
-      return <Home />;
+      return <Race />;
     }
 
     if (this.state.section === 3) {
@@ -44,9 +44,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="">
         <header>
           <MenuPrincipal goToMenu={this.goToMenu} />
+          <Header />
         </header>
         <AppContext.Provider value={{
           products: [],
