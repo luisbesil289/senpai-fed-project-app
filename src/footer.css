@@ -1,28 +1,31 @@
-.footer {
+
+footer {
     margin-top: 200px;
     background-color: rgb(47, 57, 66);
     height: 100px;
     color: white;
     font-size: 12px;
     text-align: center;
-}
-
-.footer p {
+  }
+  
+  footer p {
     background-color: rgb(47, 57, 66);
     border-top: 1px solid white;
     padding: 10px;
     color: #ffffff;
     text-align: center;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.footer .copyright {
+  }
+  
+  footer .copyright {
     opacity: .5;
     background-color: rgb(47, 57, 66);
-}
-
-.footerIcon a, img {
+  }
+  
+  #footerIcon a, img {
     text-transform: uppercase;
     background-color: rgb(47, 57, 66);
     width: 2%;
-}
+  }
+  
+  
