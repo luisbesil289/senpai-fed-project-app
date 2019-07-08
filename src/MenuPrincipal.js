@@ -2,11 +2,11 @@ import React from 'react';
 import './MenuPrincipal.css';
 
 class MenuPrincipal extends React.Component {
-    render() {       
+    render() {
         return (
             <div>
                 <nav className="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
-                    <a className="navbar-brand" href=""><img src="assets/logo.png" alt="logo" className="logo"></img></a>
+                    <img src="assets/logo.png" alt="logo" title="logo" className="logo"></img>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                         <span className="navbar-toggler-icon"></span>
                     </button>
