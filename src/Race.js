@@ -47,7 +47,7 @@ class Race extends React.Component {
                                 <div className="row">
                                     <div className="col-sm-5 col-md-5">
                                         <div className="">
-                                        <img src="assets/A_nub.jpg" className="logo img-responsive" alt="Pilot" title="Pilot"></img>
+                                        <img src="assets/A_nub.jpg" className="card_img logo img-responsive" alt="Pilot" title="Pilot"></img>
                                         </div>
                                     </div>
                                     <div className="col-sm-7 col-md-7">
@@ -66,7 +66,7 @@ class Race extends React.Component {
                                 <div className="row">
                                     <div className="col-sm-5 col-md-5">
                                         <div className="">
-                                            <img className="card_image" src="assets/Add1.jpg"></img>
+                                            <img className="card_img" src="assets/Add1.jpg"></img>
                                         </div>
                                     </div>
                                     <div className="col-sm-7 col-md-7">
@@ -85,7 +85,7 @@ class Race extends React.Component {
                                 <div className="row">
                                     <div className="col-sm-5 col-md-5">
                                         <div className="">
-                                            <img className="card_image" src="assets/Gab7070.jpg"></img>
+                                            <img className="card_img" src="assets/Gab7070.jpg"></img>
                                         </div>
                                     </div>
                                     <div className="col-sm-7 col-md-7">
@@ -104,7 +104,7 @@ class Race extends React.Component {
                                 <div className="row">
                                     <div className="col-sm-5 col-md-5">
                                         <div className="">
-                                            <img className="card_image" src="assets/A_nub.jpg"></img>
+                                            <img className="card_img" src="assets/A_nub.jpg"></img>
                                         </div>
                                     </div>
                                     <div className="col-sm-7 col-md-7">

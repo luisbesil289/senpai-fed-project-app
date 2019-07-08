@@ -3,6 +3,7 @@ import AppContext from './AppContext';
 import './App.css';
 import MenuPrincipal from './MenuPrincipal';
 import Header from './Header';
+import Home from './Home';
 import Race from './Race';
 import Footer from './Footer';
 
@@ -34,7 +35,7 @@ class App extends React.Component {
 
   currentSection() {
     if (this.state.section === 2) {
-      return <Race />;
+      return <Home />;
     }
 
     if (this.state.section === 3) {
