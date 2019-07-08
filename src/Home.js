@@ -22,7 +22,7 @@ class Home extends React.Component {
                                 <div className="carousel-inner">
                                     {news.map(noticia => <News noticia={noticia} key={noticia.id} />)}
                                 </div>
-                                <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                <a className="carousel-control-prev " href="#carouselExampleControls " role="button" data-slide="prev">
                                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span className="sr-only">Previous</span>
                                 </a>

@@ -2,6 +2,8 @@ import React from 'react';
 import AppContext from './AppContext';
 import './Race.css';
 import News from './News'
+/* import './News.css'; */
+
 
 
 var races = []
@@ -15,18 +17,20 @@ class Race extends React.Component {
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-sm-12 col-md-6">
-                            <img src="assets/listoff.png" id="img_p2" alt='... '></img>
+                            
+                            <a href="https://www.liftoff-game.com/" target="_blank "><img src="assets/listoff.png" id="img_p2" alt="falta img"></img></a>
+                            <p>THE BEST SIMULATOR EVER</p>
                         </div>
                         <div className="col-sm-12 col-md-6">
                             <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
                                 <div className="carousel-inner">
                                     {races.map(noticia => <News noticia={noticia} key={noticia.id} />)}
                                 </div>
-                                <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                <a className="carousel-control carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span className="sr-only">Previous</span>
                                 </a>
-                                <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                <a className="carousel-control carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span className="sr-only">Next</span>
                                 </a>
@@ -35,14 +39,7 @@ class Race extends React.Component {
                     </div>
                 </div>
                 <hr />
-                <div className="video_container">
-                    <iframe className="player_video_01"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player"
-                        src="https://www.youtube.com/embed/djZLcbbB-3E?modestbranding=1&amp;controls=1&amp;rel=0&amp;showinfo=0&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fthedroneracingleague.com&amp;widgetid=3"
-                        id="widget4"></iframe>
-                </div>
-
-
+               
                 <br id="section_pilots" />
                 <div className="pilots_title">
                     <span>PILOTS</span>
@@ -75,7 +72,7 @@ class Race extends React.Component {
                                 <div className="row">
                                     <div className="col-sm-5 col-md-5">
                                         <div className="">
-                                            <img className="card_img" src="assets/Add1.jpg"></img>
+                                            <img className="card_img" src="assets/Add1.jpg" alt="Pilot" title="Pilot"></img>
                                         </div>
                                     </div>
                                     <div className="col-sm-7 col-md-7">
