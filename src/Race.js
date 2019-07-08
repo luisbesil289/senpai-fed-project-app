@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './Race.css';
 
 
 class Race extends React.Component {

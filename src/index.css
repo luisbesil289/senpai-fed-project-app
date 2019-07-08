@@ -1,8 +1,50 @@
-body {
+body, html {
+  background-color: rgb(47, 57, 66);
+  height: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+* {
+  box-sizing: border-box;
+}
+@media (max-width: 575.98px) {}
+
+@media (min-width: 576px) and (max-width: 767.98px) {}
+
+/* // Medium devices (tablets, 768px and up) */
+
+@media (min-width: 768px) and (max-width: 991.98px) {}
+
+/* // Large devices (desktops, 992px and up) */
+
+@media (min-width: 992px) and (max-width: 1199.98px) {}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {}
+
+h1 {
+  font-size: 100px;
+}
+
+h2 {
+  font-size: 36px;
+  color: white;
+  margin-top: 40px;
+  text-align: left;
+  font-weight: bold;
+}
+
+p {
+  text-align: justify;
+  font-size: 18px;
+  color: white;
+}
+
+hr {
+  border-top: 1px solid white;
 }

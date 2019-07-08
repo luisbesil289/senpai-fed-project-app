@@ -2,7 +2,7 @@ import React from 'react';
 import AppContext from './AppContext';
 import './App.css';
 import MenuPrincipal from './MenuPrincipal';
-import Home from './Header';
+import Header from './Header';
 import Race from './Race';
 import Footer from './Footer';
 

@@ -4,14 +4,14 @@ import './MenuPrincipal.css';
 class MenuPrincipal extends React.Component {
     render() {       
         return (
-            <div className="menuPrincipal">
+            <div>
                 <nav className="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
                     <a className="navbar-brand" href=""><img src="assets/logo.png" alt="logo" className="logo"></img></a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="menuHorizontal collapse navbar-collapse" id="collapsibleNavbar">
-                        <ul className="navbar-nav mr-auto">
+                        <ul className="navbar-nav ml-auto text-right">
                             <li className="nav-item active">
                                 <a className="nav-link" href="#Home" onClick={(e) => this.props.goToMenu(2, e)}>HOME <span className="sr-only"></span></a>
                             </li>

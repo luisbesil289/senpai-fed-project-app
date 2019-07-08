@@ -6,15 +6,17 @@ class Header extends React.Component {
     render() {
         return (
             <div>
-                <div><img src="assets/jumbo.jpg" className="bg-image"></img></div>
-                    <div className="bg-text">
-                        <h1> DRONE </h1>
+                <div>
+                    <img src="assets/jumbo.jpg" className="bg-image" alt="Falta img"></img>
                     </div>
+                <div className="bg-text">
+                    <h1> DRONE </h1>
                 </div>
-                )
-            };
-        }
-        export default Header;
-        
-        
-        
+            </div>
+        )
+    };
+}
+export default Header;
+
+
+
