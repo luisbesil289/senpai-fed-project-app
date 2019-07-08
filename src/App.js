@@ -12,24 +12,24 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = ({
-      section: 1
+      section: 0
     });
   }
 
   goToMenu = (option) => { //recorre las opciones del Menu
     switch (option) {
-      case 2:
+      case 1:
         this.setState({
-          section: 2
+          section: 1
         });
         break;
       case 3:
         this.setState({
-          section: 3
+          section: 2
         });
         break;
       default:
-        return 1;
+        return 2;
     }
   }
 

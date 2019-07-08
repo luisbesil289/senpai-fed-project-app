@@ -13,10 +13,10 @@ class MenuPrincipal extends React.Component {
                     <div className="menuHorizontal collapse navbar-collapse" id="collapsibleNavbar">
                         <ul className="navbar-nav ml-auto text-right">
                             <li className="nav-item active">
-                                <a className="nav-link" href="#Home" onClick={(e) => this.props.goToMenu(2, e)}>HOME <span className="sr-only"></span></a>
+                                <a className="nav-link" href="#Home" onClick={(e) => this.props.goToMenu(1, e)}>HOME <span className="sr-only"></span></a>
                             </li>
                             <li className="nav-item active">
-                                <a className="nav-link" href="#Race" onClick={(e) => this.props.goToMenu(3, e)}>RACE <span className="sr-only"></span></a>
+                                <a className="nav-link" href="#Race" onClick={(e) => this.props.goToMenu(2, e)}>RACE <span className="sr-only"></span></a>
                             </li>
                             <li className="nav-item active">
                                 <a className="nav-link" href="fly.html">FLY <span className="sr-only"></span></a>
