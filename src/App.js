@@ -13,7 +13,42 @@ class App extends React.Component {
     super(props);
     this.state = ({
       section: 1,
-      pilotos: [],
+      pilotos: [{
+        id: 1,
+        nombre: 'carousel-item',
+        nick: 'races',
+        foto: 'assets/A_nub.jpg',
+        pais: 'Agosto 28, 2019. GET READY.',
+        fecha: '2019-5-16',
+        descripcion: 'Liftoff is an award winning simulation game by LuGus Studios, that translates the rush of first-person view drone racing to the digital world. Join the biggest community for virtual FPV racing!'        
+      },
+      {
+        id: 2,
+        nombre: 'carousel-item',
+        nick: 'races',
+        foto: 'assets/A_nub.jpg',
+        pais: 'Agosto 28, 2019. GET READY.',
+        fecha: '2019-5-16',
+        descripcion: 'Liftoff is an award winning simulation game by LuGus Studios, that translates the rush of first-person view drone racing to the digital world. Join the biggest community for virtual FPV racing!'        
+      },
+      {
+        id: 3,
+        nombre: 'carousel-item',
+        nick: 'races',
+        foto: 'assets/A_nub.jpg',
+        pais: 'Agosto 28, 2019. GET READY.',
+        fecha: '2019-5-16',
+        descripcion: 'Liftoff is an award winning simulation game by LuGus Studios, that translates the rush of first-person view drone racing to the digital world. Join the biggest community for virtual FPV racing!'        
+      },
+      {
+        id: 4,
+        nombre: 'carousel-item',
+        nick: 'races',
+        foto: 'assets/A_nub.jpg',
+        pais: 'Agosto 28, 2019. GET READY.',
+        fecha: '2019-5-16',
+        descripcion: 'Liftoff is an award winning simulation game by LuGus Studios, that translates the rush of first-person view drone racing to the digital world. Join the biggest community for virtual FPV racing!'        
+      }],
       noticias: [{
         id: 1,
         active: 'carousel-item active',
@@ -121,7 +156,8 @@ class App extends React.Component {
           <Header />
         </header>
         <AppContext.Provider value={{
-          noticias: this.state.noticias
+          noticias: this.state.noticias,
+          pilotos: this.state.pilotos
         }}>
 
           <main>
