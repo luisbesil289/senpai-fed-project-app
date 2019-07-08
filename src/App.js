@@ -56,8 +56,8 @@ class App extends React.Component {
         publicacion: '2018-5-16'
       }, {
         id: 5,
-        active: 'carousel-item',
-        tipo: 'race',
+        active: 'carousel-item active',
+        tipo: 'races',
         foto: '',
         titulo: 'August 11, 2019. GET READY.',
         bajada: 'The 2019 DRL Allianz World Championship Season is coming! With custom built racing drones traveling 90 MPH+, pilots race FPV (First Person View) through the most insane 3D courses ever created outside of a video game. The high-speed action airs on the best sports networks, including NBC, NBC Sports, Twitter, Sky Sports, ProSieben, Groupe AB, OSN and FOX Sports Asia.',

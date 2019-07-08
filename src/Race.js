@@ -1,27 +1,36 @@
 import React from 'react';
+import AppContext from './AppContext';
 import './Race.css';
+import News from './News'
 
+
+var races = []
 
 class Race extends React.Component {
-
+    static contextType = AppContext;
     render() {
+        races = this.context.noticias.filter(noticia => noticia.tipo === 'races');
         return (
             <div>
-               <div className="container">
+                <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-sm-12 col-md-6">
-                        <img src="assets/listoff.png" id="img_p2"></img>
+                            <img src="assets/listoff.png" id="img_p2" alt='... '></img>
                         </div>
                         <div className="col-sm-12 col-md-6">
-                            <h2>AUGUST 11, 2019. GET READY.</h2>
-                            <p>The 2019 DRL Allianz World Championship Season is coming! With custom built racing drones traveling
-                                90 MPH+,
-                                pilots race FPV (First Person View) through the most insane 3D courses ever created outside of a
-                                video game.
-                                The high-speed action airs on the best sports networks, including NBC, NBC Sports, Twitter, Sky
-                                Sports,
-                                ProSieben, Groupe AB, OSN and FOX Sports Asia.
-                        </p>
+                            <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+                                <div className="carousel-inner">
+                                    {races.map(noticia => <News noticia={noticia} key={noticia.id} />)}
+                                </div>
+                                <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span className="sr-only">Previous</span>
+                                </a>
+                                <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span className="sr-only">Next</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -47,7 +56,7 @@ class Race extends React.Component {
                                 <div className="row">
                                     <div className="col-sm-5 col-md-5">
                                         <div className="">
-                                        <img src="assets/A_nub.jpg" className="card_img logo img-responsive" alt="Pilot" title="Pilot"></img>
+                                            <img src="assets/A_nub.jpg" className="card_img logo img-responsive" alt="Pilot" title="Pilot"></img>
                                         </div>
                                     </div>
                                     <div className="col-sm-7 col-md-7">

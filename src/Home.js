@@ -1,7 +1,7 @@
 import React from 'react';
 import AppContext from './AppContext';
 import './Home.css';
-import HomeNews from './HomeNews'
+import News from './News'
 
 
 var news=[]
@@ -20,7 +20,7 @@ class Home extends React.Component {
                         <div className="col-sm-6 col-md-6">
                             <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
                                 <div className="carousel-inner">
-                                    {news.map(noticia => <HomeNews noticia={noticia} key={noticia.id} />)}
+                                    {news.map(noticia => <News noticia={noticia} key={noticia.id} />)}
                                 </div>
                                 <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
