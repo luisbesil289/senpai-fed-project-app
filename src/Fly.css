@@ -1,0 +1,14 @@
+.map_container{
+    text-align: center;
+    width: 100%;
+}
+.fly-iframe{
+    width:50%;
+    height:300px;
+}
+
+.fly-text {
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
