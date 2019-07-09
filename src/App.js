@@ -6,6 +6,7 @@ import Header from './Header';
 import Home from './Home';
 import Race from './Race/Race';
 import Fly from './Fly/Fly';
+import Blog from './Blog/Blog';
 import Footer from './Footer';
 
 
@@ -14,6 +15,7 @@ class App extends React.Component {
     super(props);
     this.state = ({
       section: 1,
+      unblog:'',
       pilotos: [{
         id: 1,
         nombre: 'carousel-item',
@@ -117,9 +119,40 @@ class App extends React.Component {
         nota: 'Liftoff is an award winning simulation game by LuGus Studios, that translates the rush of first-person view drone racing to the digital world. Join the biggest community for virtual FPV racing!',
         publicacion: '2019-5-16'
       }],
-      articulos: []
+      articulos: [],
+      blog: [{ //Array con 2 blog de ejemplo
+        id: 1,
+        titulo: 'Cuando es recomendable volar?',
+        usuario: 'Rodriguez',
+        fecha: '2013-6-16',
+        foto: 'assets/DRL_BMW_Welt2018_sw4486.jpg',
+        descripcion: 'Creo que el mejor momento es cuando hay poco o nada de viento, obviamente sin lluvia y de dia, aunque ultimamente han salido camaras que soportan bastante bien la oscuridad.',
+        comentarios: [{
+          id: 1,
+          titulo: 'Como volar y no morir en el intento',
+          usuario: 'Lopez',
+          fecha: '2018-6-16',
+          comentario: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable.'
+        }]
+      }, {
+        id: 2,
+        titulo: 'Como volar y no morir en el intento',
+        usuario: 'Lopez',
+        fecha: '2018-6-16',
+        foto: 'assets/DRL_BMW_Welt2018_sw4486.jpg',
+        descripcion: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable.',
+        comentarios: [{
+                  id: 2,
+                  titulo: 'Como volar y no morir en el intento',
+                  usuario: 'Lopez',
+                  fecha: '2018-6-16',
+                  comentario: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable.'
+                     }]
+         }]
     });
   }
+
+
 
   goToMenu = (option) => { //recorre las opciones del Menu
     switch (option) {
@@ -138,9 +171,24 @@ class App extends React.Component {
           section: 3
         });
         break;
+      case 4:
+        this.setState({
+          section: 4
+        });
+        break;
+      case 5:
+        this.setState({
+          section: 5
+        });
+        break;
       default:
         return 1;
     }
+  }
+
+  goToBlogComentarios = (unBlog) => {    
+    this.setState({unBlog: unBlog,
+      section: 5 })    
   }
 
   currentSection() {
@@ -155,6 +203,14 @@ class App extends React.Component {
     if (this.state.section === 3) {
       return <Fly />;
     }
+
+    if (this.state.section === 4) {
+      return <Blog goToBlogComentarios={this.goToBlogComentarios} />;
+    }
+
+    if (this.state.section === 5) {
+      return <Home />;
+    }
   }
 
   render() {
@@ -166,8 +222,10 @@ class App extends React.Component {
           <Header />
         </header>
         <AppContext.Provider value={{
+          stateManager: this.state,
           noticias: this.state.noticias,
-          pilotos: this.state.pilotos
+          pilotos: this.state.pilotos,
+          blog: this.state.blog  
         }}>
           <main>
             {this.currentSection()}

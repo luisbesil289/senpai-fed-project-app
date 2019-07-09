@@ -13,9 +13,9 @@ class Fly extends React.Component {
         return (
             <div>
                 <div>
-                    <p className="fly-text"><h5> ¿En qué lugares de Montevideo se podrá volar un dron? Se habilitaron cuatro parques </h5></p>
+                <h5><p className="fly-text"> ¿En qué lugares de Montevideo se podrá volar un dron? Se habilitaron cuatro parques </p></h5>
                 </div>
-                <div class="map_container">
+                <div className="map_container">
                     <iframe  className="fly-iframe" title="Mapa de ruta" src={"https://maps.google.com/maps?width=100%&height=600&hl=es&coord=-34.86819105021703,-56.017184257507324&q=Parque%20Roussvelt+(FLy)&ie=UTF8&t=&z=16&iwloc=B&output=embed"}><a href="https://www.mapsdirections.info/calcular-ruta.html">""</a></iframe>
                </div>
                 <div>

@@ -1,0 +1,46 @@
+.form-control{
+  /* display: block; */
+  width: 97%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: 4px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 2px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  margin-left:5px;
+  margin-top:-7px;
+}
+
+.text-title{
+  color: yellow;
+  font-weight: bold;
+}
+.img-blog{
+  width: 97%;
+}
+.text-blog{
+  color: white;
+}
+.p {
+  text-align: center;
+  margin-right: 10%;
+}
+
+#ModalFormBlog {
+  text-align: center;
+  font-size: 18px;
+}
+
+h4 {
+  text-align: center;
+}
+
+.modal-content{
+  text-align: center;
+  
+}
