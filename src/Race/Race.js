@@ -1,7 +1,7 @@
 import React from 'react';
-import AppContext from './AppContext';
+import AppContext from '../AppContext';
 import './Race.css';
-import News from './News';
+import News from '../News/News';
 import RacePilots from './RacePilots';
 
 

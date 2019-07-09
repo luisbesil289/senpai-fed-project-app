@@ -1,7 +1,7 @@
 import React from 'react';
 import AppContext from './AppContext';
 import './Home.css';
-import News from './News'
+import News from './News/News'
 
 
 var news=[]
