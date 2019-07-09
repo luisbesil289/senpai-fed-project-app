@@ -1,5 +1,5 @@
 import React from 'react';
-import AppContext from './AppContext';
+import AppContext from '../AppContext';
 import './Fly.css';
 
 
@@ -16,7 +16,7 @@ class Fly extends React.Component {
                     <p className="fly-text"><h5> ¿En qué lugares de Montevideo se podrá volar un dron? Se habilitaron cuatro parques </h5></p>
                 </div>
                 <div class="map_container">
-                    <iframe  className="fly-iframe" title="Mapa de ruta" src={"https://maps.google.com/maps?width=100%&height=600&hl=es&coord=-34.86819105021703,-56.017184257507324&q=Parque%20Roussvelt+(FLy)&ie=UTF8&t=&z=16&iwloc=B&output=embed"}><a href="https://www.mapsdirections.info/calcular-ruta.html"></a></iframe>
+                    <iframe  className="fly-iframe" title="Mapa de ruta" src={"https://maps.google.com/maps?width=100%&height=600&hl=es&coord=-34.86819105021703,-56.017184257507324&q=Parque%20Roussvelt+(FLy)&ie=UTF8&t=&z=16&iwloc=B&output=embed"}><a href="https://www.mapsdirections.info/calcular-ruta.html">""</a></iframe>
                </div>
                 <div>
                     <p className="fly-text">La Intendencia de Montevideo, la Fuerza Aérea Uruguaya y la Dinacia determinaron cuatro parques de Montevideo en los que se va a poder volar un dron.</p>
