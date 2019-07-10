@@ -1,6 +1,6 @@
 import React from 'react';
 import AppContext from '../AppContext';
-import ManagerNavBar from './Manager/ManagerNavBar';
+import ManagerNavBar from './ManagerNavBar';
 import './Manager.css';
 
 
@@ -11,7 +11,7 @@ class Manager extends React.Component {
 
         return (
             <div>
-<ManagerNavBar />
+                <ManagerNavBar />
             </div>
         )
     };

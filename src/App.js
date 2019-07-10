@@ -7,7 +7,7 @@ import Home from './Home';
 import Race from './Race/Race';
 import Fly from './Fly/Fly';
 import Blog from './Blog/Blog';
-import Manager from './Manager/Manager';
+import Manager from './Cms/Manager';
 import Footer from './Footer';
 
 
