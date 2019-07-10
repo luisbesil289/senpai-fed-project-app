@@ -25,7 +25,7 @@ class MenuPrincipal extends React.Component {
                                 <a className="nav-link" href="#Blog" onClick={(e) => this.props.goToMenu(4, e)}>BLOG <span className="sr-only"></span></a>
                             </li>
                             <li className="nav-item active">
-                                <a className="nav-link" href="shop.html">SHOP <span className="sr-only"></span></a>
+                                <a className="nav-link" href="#Blog" onClick={(e) => this.props.goToMenu(666, e)}>MANAGER <span className="sr-only"></span></a>
                             </li>
                         </ul>
                         <div className="login-container" data-toggle="collapse">

@@ -7,6 +7,7 @@ import Home from './Home';
 import Race from './Race/Race';
 import Fly from './Fly/Fly';
 import Blog from './Blog/Blog';
+import Manager from './Manager/Manager';
 import Footer from './Footer';
 
 
@@ -15,42 +16,54 @@ class App extends React.Component {
     super(props);
     this.state = ({
       section: 1,
-      unblog:'',
+      unblog: '',
       pilotos: [{
         id: 1,
-        nombre: 'carousel-item',
-        nick: 'races',
+        nombre: 'Juan Carlos Rodriguez',
+        nick: 'A_Nube',
         foto: 'assets/A_nub.jpg',
-        pais: 'Agosto 28, 2019. GET READY.',
-        fecha: '2019-5-16',
-        descripcion: 'Liftoff is an award winning simulation game by LuGus Studios, that translates the rush of first-person view drone racing to the digital world. Join the biggest community for virtual FPV racing!'
+        pais: 'Argentina',
+        fecha: '1995-5-16',
+        equipo: 'Caos',
+        podios: 1,
+        Puntos: 120,
+        descripcion: 'El respeto se gana mucho en la competicion, pero A_Nube lo tiene de cada uno de sus compañeros. ¿Por qué? Porque saben que cualquiera que sea la pista, las condiciones, la situación, cuando sus lentes bajan y las luces se apagan, es Anubetime.'
       },
       {
         id: 2,
-        nombre: 'carousel-item',
-        nick: 'races',
+        nombre: 'Juan Carlos Rodriguez',
+        nick: 'A_Nube',
         foto: 'assets/A_nub.jpg',
-        pais: 'Agosto 28, 2019. GET READY.',
-        fecha: '2019-5-16',
-        descripcion: 'Liftoff is an award winning simulation game by LuGus Studios, that translates the rush of first-person view drone racing to the digital world. Join the biggest community for virtual FPV racing!'
+        pais: 'Argentina',
+        fecha: '1995-5-16',
+        equipo: 'Caos',
+        podios: 1,
+        Puntos: 120,
+        descripcion: 'El respeto se gana mucho en la competicion, pero A_Nube lo tiene de cada uno de sus compañeros. ¿Por qué? Porque saben que cualquiera que sea la pista, las condiciones, la situación, cuando sus lentes bajan y las luces se apagan, es Anubetime.'
       },
       {
         id: 3,
-        nombre: 'carousel-item',
-        nick: 'races',
+        nombre: 'Juan Carlos Rodriguez',
+        nick: 'A_Nube',
         foto: 'assets/A_nub.jpg',
-        pais: 'Agosto 28, 2019. GET READY.',
-        fecha: '2019-5-16',
-        descripcion: 'Liftoff is an award winning simulation game by LuGus Studios, that translates the rush of first-person view drone racing to the digital world. Join the biggest community for virtual FPV racing!'
+        pais: 'Argentina',
+        fecha: '1995-5-16',
+        equipo: 'Caos',
+        podios: 1,
+        Puntos: 120,
+        descripcion: 'El respeto se gana mucho en la competicion, pero A_Nube lo tiene de cada uno de sus compañeros. ¿Por qué? Porque saben que cualquiera que sea la pista, las condiciones, la situación, cuando sus lentes bajan y las luces se apagan, es Anubetime.'
       },
       {
         id: 4,
-        nombre: 'carousel-item',
-        nick: 'races',
+        nombre: 'Juan Carlos Rodriguez',
+        nick: 'A_Nube',
         foto: 'assets/A_nub.jpg',
-        pais: 'Agosto 28, 2019. GET READY.',
-        fecha: '2019-5-16',
-        descripcion: 'Liftoff is an award winning simulation game by LuGus Studios, that translates the rush of first-person view drone racing to the digital world. Join the biggest community for virtual FPV racing!'
+        pais: 'Argentina',
+        fecha: '1995-5-16',
+        equipo: 'Caos',
+        podios: 1,
+        Puntos: 120,
+        descripcion: 'El respeto se gana mucho en la competicion, pero A_Nube lo tiene de cada uno de sus compañeros. ¿Por qué? Porque saben que cualquiera que sea la pista, las condiciones, la situación, cuando sus lentes bajan y las luces se apagan, es Anubetime.'
       }],
       noticias: [{
         id: 1,
@@ -142,18 +155,15 @@ class App extends React.Component {
         foto: 'assets/DRL_BMW_Welt2018_sw4486.jpg',
         descripcion: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable.',
         comentarios: [{
-                  id: 2,
-                  titulo: 'Como volar y no morir en el intento',
-                  usuario: 'Lopez',
-                  fecha: '2018-6-16',
-                  comentario: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable.'
-                     }]
-         }]
+          id: 2,
+          titulo: 'Como volar y no morir en el intento',
+          usuario: 'Lopez',
+          fecha: '2018-6-16',
+          comentario: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable.'
+        }]
+      }]
     });
   }
-
-
-
   goToMenu = (option) => { //recorre las opciones del Menu
     switch (option) {
       case 1:
@@ -181,14 +191,21 @@ class App extends React.Component {
           section: 5
         });
         break;
+      case 666:
+        this.setState({
+          section: 666
+        });
+        break;
       default:
         return 1;
     }
   }
 
-  goToBlogComentarios = (unBlog) => {    
-    this.setState({unBlog: unBlog,
-      section: 5 })    
+  goToBlogComentarios = (unBlog) => {
+    this.setState({
+      unBlog: unBlog,
+      section: 5
+    })
   }
 
   currentSection() {
@@ -211,21 +228,23 @@ class App extends React.Component {
     if (this.state.section === 5) {
       return <Home />;
     }
+    if (this.state.section === 666) {
+      return <Manager />;
+    }
   }
 
   render() {
 
     return (
-      <div className="">
+      <div className="App">
         <header>
           <MenuPrincipal goToMenu={this.goToMenu} />
           <Header />
         </header>
         <AppContext.Provider value={{
-          stateManager: this.state,
           noticias: this.state.noticias,
           pilotos: this.state.pilotos,
-          blog: this.state.blog  
+          blog: this.state.blog
         }}>
           <main>
             {this.currentSection()}

@@ -1,63 +1,50 @@
-/* #img_p1 {
-    width: 60%;
-    margin-top: 10px;
-} 
 #img_p2 {
-    width: 60%;
-    margin-top: 20%;
+    width: 70%;
+    margin-top: 7%;
 }
-*/
-#img_p2 {
-    width: 60%;
-    margin-top: 20%;
-}
-
 .carousel-control {
     position: absolute;
-    top: 30%; /* pushes the icon in the middle of the height */
+    top: 30%;
+    /* pushes the icon in the middle of the height */
     z-index: 1;
     display: inline-block;
-
-    color:black;
-height: 10%;
-
-    }
-    .pilots_title, .teams_title {
-        border: 2px solid white;
-        text-align: center;
-        font-size: 36px;
-        color: white;
-        margin-top: 40px;
-        font-weight: bold;
-        padding: 50px;
-    }
-    
+    color: black;
+    height: 10%;
+}
 
 .pilots_title, .teams_title {
     border: 2px solid white;
     text-align: center;
-    font-size: 36px;
-    color: white;
-    margin-top: 40px;
+    font-size: 26px;
+    color: rgb(128, 30, 255);
+    margin-top: 10px;
     font-weight: bold;
-    padding: 50px;
+    padding: 10px;
 }
 
+.card-Race {
+    margin-top: 30px;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
 
 .card_img {
-    width: 100%
+    width: 100%;
 }
 
-
-.card .card-text {
+.card-text {
     color: black;
     font-size: 14px;
     font-style: italic;
 }
+
 .container {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+ /*    padding-right: 15px;
+    padding-left: 15px; */
     margin-right: auto;
     margin-left: auto;
 }
@@ -68,29 +55,6 @@ height: 10%;
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+/*     margin-right: -15px;
+    margin-left: -15px; */
 }
-
-
-
-/* .card .table {
-    padding: 15px 30px;
-}
-
-.category {
-    position: relative;
-    line-height: 0;
-    margin: 15px 0;
-}
-
-.card-caption {
-    font-weight: 700;
-    font-family: "Roboto Slab", "Times New Roman", serif;
-}
-
-.card-description {
-    text-align: justify;
-    font-size: 18px;
-    color: rgb(0, 0, 0);
-} */ 

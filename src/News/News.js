@@ -23,7 +23,7 @@ class HomeNews extends React.Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
-                            <div className="card">                               
+                                <div className="card card-News">
                                     <div className="card-image">
                                         {this.returnImage()}
                                     </div>
@@ -34,8 +34,8 @@ class HomeNews extends React.Component {
                                         <p className="card-text">{this.props.noticia.bajada}</p>
                                         <p className="card-text">{this.props.noticia.nota}</p>
                                         <hr />
-                                        </div>
-                                    </div>                               
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
