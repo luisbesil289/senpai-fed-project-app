@@ -8,11 +8,10 @@ import './Manager.css';
 class Manager extends React.Component {
     static contextType = AppContext;
     render() {
-
         return (
             <div>
-                <ManagerNavBar />
-            </div>
+                <ManagerNavBar goToMenu={this.props.goToMenu} />
+            </div>                       
         )
     };
 }

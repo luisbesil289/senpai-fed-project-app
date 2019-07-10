@@ -1,5 +1,7 @@
 import React from 'react';
 import AppContext from './AppContext';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
 import './App.css';
 import MenuPrincipal from './MenuPrincipal';
 import Header from './Header';
@@ -9,6 +11,8 @@ import Fly from './Fly/Fly';
 import Blog from './Blog/Blog';
 import Manager from './Cms/Manager';
 import Footer from './Footer';
+import PilotForm from './Cms/PilotForm';
+import PilotList from './Cms/PilotList';
 
 
 class App extends React.Component {
@@ -17,6 +21,7 @@ class App extends React.Component {
     this.state = ({
       section: 1,
       unblog: '',
+      pilotoToEdit: null,
       pilotos: [{
         id: 1,
         nombre: 'Juan Carlos Rodriguez',
@@ -164,6 +169,21 @@ class App extends React.Component {
       }]
     });
   }
+
+  goToEdit = (piloto) => {
+    console.log("Llego a gotoEdit");
+    this.setState({
+      section: 664,
+      pilotoToEdit: piloto
+    });
+  }
+
+  editPilot = (id, newPilotoData) => {
+    this.setState({
+      pilotos: this.state.pilotos.map(item => item.id === id ? newPilotoData : item)
+    })
+  }
+
   goToMenu = (option) => { //recorre las opciones del Menu
     switch (option) {
       case 1:
@@ -189,6 +209,16 @@ class App extends React.Component {
       case 5:
         this.setState({
           section: 5
+        });
+        break;
+      case 664:
+        this.setState({
+          section: 664
+        });
+        break;
+      case 665:
+        this.setState({
+          section: 665
         });
         break;
       case 666:
@@ -228,8 +258,20 @@ class App extends React.Component {
     if (this.state.section === 5) {
       return <Home />;
     }
+    if (this.state.section === 664) {
+      return <PilotForm />;
+    }
+    if (this.state.section === 665) {
+      return <PilotList
+        goToList={this.goToList}
+        goToEdit={this.goToEdit}
+        editPilot={this.editPilot}
+        piloto={this.state.pilotoToEdit}
+      />;
+    }
     if (this.state.section === 666) {
-      return <Manager />;
+      return <Manager
+        goToMenu={this.goToMenu} />;
     }
   }
 
@@ -238,6 +280,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <header>
+          <CssBaseline />
           <MenuPrincipal goToMenu={this.goToMenu} />
           <Header />
         </header>
@@ -247,7 +290,9 @@ class App extends React.Component {
           blog: this.state.blog
         }}>
           <main>
-            {this.currentSection()}
+            <Container maxWidth="lg">
+              {this.currentSection()}
+            </Container>
           </main>
           <Footer />
         </AppContext.Provider>
