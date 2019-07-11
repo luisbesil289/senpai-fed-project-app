@@ -9,21 +9,68 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import PilotListItem from './PilotListItem';
 import ManagerNavBar from './ManagerNavBar';
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 const styles = theme => ({
   root: {
     width: '100%',
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(0),
     overflowX: 'auto',
+  },
+  fab: {
+    flex: '100px 0 356px',
+    align: 'right',
+    margin: '10px',
+    size: 'small'
+  },
+  breadCrumb: {
+    flex: 1,
+    alignSelf: 'center'
   }
 });
 
+
 class PilotList extends React.Component {
   static contextType = AppContext;
+
+  /* additionalSection() {
+    switch (this.props.section) {
+      case 'newPiloto':
+        return <Typography color="textPrimary">Ingresar nuevo Piloto</Typography>;
+      case 'editPiloto':
+        return <Typography color="textPrimary">{this.props.animal.name}</Typography>;
+      case 'list':
+      default:
+        return null;
+    }
+  } */
+  goToNewPilot = () => {
+    this.context.goToMenu(664);
+  }
+
+  addNewPilotButton() {
+    if (this.props.section !== 'newPiloto') {
+      return (
+        <Fab color="secondary" aria-label="Add" className={this.props.classes.fab} onClick={this.goToNewPilot}>
+          <AddIcon />
+        </Fab>
+      );
+    } else {
+      return null;
+    }
+  }
+
+
   render() {
-    console.log(this.context.pilotos);
     return (
-      <div><ManagerNavBar goToMenu={this.props.goToMenu} />
+      <div>
+        <ManagerNavBar goToMenu={this.props.goToMenu} />
+        <Link color="inherit" href="#/" onClick={this.goToNewPilot}> <Typography variant="h6">Agregar Piloto</Typography></Link>
+        {/*  {this.additionalSection()} */}
+        {this.addNewPilotButton()}
         <Paper className={this.props.classes.root}>
           <Table>
             <TableHead>
@@ -37,13 +84,13 @@ class PilotList extends React.Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              {this.context.pilotos.map(item => (<PilotListItem piloto={item} key={item.id} 
-                goToEdit={this.props.goToEdit}
-                deleteAnimal={this.props.deleteAnimal}/>
-              ))}
+              {this.context.pilotos.map(item => (<PilotListItem piloto={item} key={item.id} />))}
+
             </TableBody>
           </Table>
         </Paper>
+
+
       </div>
     );
   }

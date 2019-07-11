@@ -1,4 +1,5 @@
 import React from 'react';
+import AppContext from '../AppContext';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import IconButton from '@material-ui/core/IconButton';
@@ -7,16 +8,16 @@ import EditIcon from '@material-ui/icons/Edit';
 
 
 class PilotListItem extends React.Component {
-   editPiloto = () => {
-     this.props.goToEdit(this.props.piloto);
-   }
- 
-   deletePiloto = () => {
-     this.props.deleteAnimal(this.props.piloto.id);
-   }
+  static contextType = AppContext;
+  editPiloto = () => {
+    this.context.goToEdit(this.props.piloto);
+  }
+
+  deletePiloto = () => {
+    this.context.deletePilot(this.props.piloto.id);
+  }
 
   render() {
-    console.log(this.props.pilot);
     return (
 
       <TableRow>

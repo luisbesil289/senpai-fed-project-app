@@ -1,7 +1,7 @@
 import React from 'react';
+import AppContext from '../AppContext';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -33,7 +33,8 @@ const styles = theme => ({
   }
 });
 
-class AnimalForm extends React.Component {
+class PilotForm extends React.Component {
+  static contextType = AppContext;
   constructor(props) {
     super(props);
     if (this.props.piloto) {
@@ -42,7 +43,7 @@ class AnimalForm extends React.Component {
       this.state = {
         id: this.props.piloto.id,
         nombre: this.props.piloto.nombre,
-        nick: this.props.piloto.gender,
+        nick: this.props.piloto.nick,
         fecha: this.props.piloto.fecha,
         pais: this.props.piloto.pais,
         equipo: this.props.piloto.equipo,
@@ -67,50 +68,44 @@ class AnimalForm extends React.Component {
     }
   }
 
-  handleChange = nombre => event => {
-    this.setState({ [nombre]: event.target.value });
+  handleChange = xxx => event => {
+    this.setState({ [xxx]: event.target.value });
   };
 
-  handleContactChange = name => event => {
-    this.setState({
-      contact: {
-        ...this.state.contact,
-        [name]: event.target.value
-      }
-    });
+  cancelForm = () => {
+    this.context.goToMenu(666);
   };
 
   handleSubmit = () => {
-    if (this.props.animal) {
+
+    if (this.props.piloto) {
       // It is an Animal EDIT.
       // Use editAnimal method.
-      this.props.editPiloto(this.props.id, {
-        id: this.props.id,
-        nombre: this.props.nombre,
-        nick: this.props.gender,
-        fecha: this.props.fecha,
-        pais: this.props.pais,
-        equipo: this.props.equipo,
-        podios: this.props.podios,
-        puntos: this.props.puntos,
-        descripcion: this.props.descripcion
+      this.context.editPilot(this.props.piloto.id, {
+        id: this.state.id,
+        nombre: this.state.nombre,
+        nick: this.state.nick,
+        fecha: this.state.fecha,
+        pais: this.state.pais,
+        equipo: this.state.equipo,
+        podios: this.state.podios,
+        puntos: this.state.puntos,
+        descripcion: this.state.descripcion
       });
     } else {
-      // It is a NEW Animal.
-      // Use addAnimal method.
-      this.props.addPiloto({
-        nombre: this.props.nombre,
-        nick: this.props.gender,
-        fecha: this.props.fecha,
-        pais: this.props.pais,
-        equipo: this.props.equipo,
-        podios: this.props.podios,
-        puntos: this.props.puntos,
-        descripcion: this.props.descripcion
+      this.context.addPilot({
+        nombre: this.state.nombre,
+        nick: this.state.nick,
+        fecha: this.state.fecha,
+        pais: this.state.pais,
+        equipo: this.state.equipo,
+        podios: this.state.podios,
+        puntos: this.state.puntos,
+        descripcion: this.state.descripcion
       });
     }
 
-    this.props.goToList();
+    this.props.goToMenu(665);
   }
 
   render() {
@@ -133,7 +128,7 @@ class AnimalForm extends React.Component {
             id="nick"
             label="Nick"
             className={this.props.classes.textField}
-            value={this.state.eyesColor}
+            value={this.state.nick}
             onChange={this.handleChange('nick')}
             margin="normal"
           />
@@ -142,7 +137,7 @@ class AnimalForm extends React.Component {
             id="fecha"
             label="Fecha de Nacimiento"
             className={this.props.classes.textField}
-            value={this.state.birthdate}
+            value={this.state.fecha}
             onChange={this.handleChange('fecha')}
             margin="normal"
             placeholder="YYYY-MM-DD"
@@ -153,7 +148,7 @@ class AnimalForm extends React.Component {
             id="pais"
             label="Pais"
             className={this.props.classes.textField}
-            value={this.state.breed}
+            value={this.state.pais}
             onChange={this.handleChange('pais')}
             margin="normal"
           />
@@ -162,7 +157,7 @@ class AnimalForm extends React.Component {
             id="equipo"
             label="Equipo"
             className={this.props.classes.textField}
-            value={this.state.breed}
+            value={this.state.equipo}
             onChange={this.handleChange('equipo')}
             margin="normal"
           />
@@ -171,7 +166,7 @@ class AnimalForm extends React.Component {
             id="podios"
             label="Podios"
             className={this.props.classes.textField}
-            value={this.state.zone}
+            value={this.state.podios}
             onChange={this.handleChange('podios')}
             margin="normal"
           />
@@ -180,7 +175,7 @@ class AnimalForm extends React.Component {
             id="puntos"
             label="Puntos"
             className={this.props.classes.textField}
-            value={this.state.peltColor}
+            value={this.state.puntos}
             onChange={this.handleChange('puntos')}
             margin="normal"
           />
@@ -193,22 +188,24 @@ class AnimalForm extends React.Component {
             helperText="Please add an animal description, appereance, behaviour, mood..."
             fullWidth
             margin="normal"
-            value={this.state.description}
+            value={this.state.descripcion}
             onChange={this.handleChange('descripcion')}
           />
         </Paper>
-        
+
 
         <div>
-          <Button variant="contained" className={this.props.classes.button} onClick={this.props.goToList}>
+          <Button variant="contained" className={this.props.classes.button} onClick={this.cancelForm}>
             Cancel
         </Button>
+
           <Button variant="contained" color="primary" className={this.props.classes.button} onClick={this.handleSubmit}>
-            {this.props.animal ? 'Save' : 'Create'}
+
+            {this.props.piloto ? 'Save' : 'Create'}
           </Button>
         </div>
       </form>
     );
   }
 }
-export default withStyles(styles)(AnimalForm);
+export default withStyles(styles)(PilotForm);

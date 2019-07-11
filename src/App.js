@@ -169,19 +169,51 @@ class App extends React.Component {
       }]
     });
   }
+  getNextPilotId() {
+    var productWithHighestId = this.state.pilotos.sort((a, b) => b.id - a.id)[0];
+    if (productWithHighestId === undefined) {
+      return 1; // List is empty, so use 1 as first product id.
+    } else {
+      return productWithHighestId.id + 1; // List is not empty, increase one to the highest id for the next product.
+    }
+  }
 
   goToEdit = (piloto) => {
-    console.log("Llego a gotoEdit");
     this.setState({
       section: 664,
       pilotoToEdit: piloto
     });
   }
 
+  goToNew = (piloto) => {
+    this.setState({
+      section: 664,
+      pilotoToEdit: piloto
+    });
+  }
+
+  addPilot = (newPilot) => {
+
+    this.setState({
+      pilotos: [...this.state.pilotos, {
+        id: this.getNextPilotId(),
+        ...newPilot
+      }]
+    });
+  }
+
   editPilot = (id, newPilotoData) => {
     this.setState({
-      pilotos: this.state.pilotos.map(item => item.id === id ? newPilotoData : item)
+      pilotos: this.state.pilotos.map(item => item.id === id ? newPilotoData : item), section: 664,
+      pilotoToEdit: newPilotoData
     })
+
+  }
+
+  deletePilot = (id) => {
+    this.setState({
+      pilotos: this.state.pilotos.filter(item => item.id !== id)
+    });
   }
 
   goToMenu = (option) => { //recorre las opciones del Menu
@@ -259,13 +291,12 @@ class App extends React.Component {
       return <Home />;
     }
     if (this.state.section === 664) {
-      return <PilotForm />;
+      return <PilotForm addPilot={this.addPilot} goToMenu={this.goToMenu} piloto={this.state.pilotoToEdit} />;
     }
     if (this.state.section === 665) {
       return <PilotList
         goToList={this.goToList}
-        goToEdit={this.goToEdit}
-        editPilot={this.editPilot}
+
         piloto={this.state.pilotoToEdit}
       />;
     }
@@ -276,7 +307,6 @@ class App extends React.Component {
   }
 
   render() {
-
     return (
       <div className="App">
         <header>
@@ -287,7 +317,12 @@ class App extends React.Component {
         <AppContext.Provider value={{
           noticias: this.state.noticias,
           pilotos: this.state.pilotos,
-          blog: this.state.blog
+          blog: this.state.blog,
+          goToMenu: this.goToMenu,
+          editPilot: this.editPilot,
+          addPilot: this.addPilot,
+          deletePilot: this.deletePilot,
+          goToEdit: this.goToEdit
         }}>
           <main>
             <Container maxWidth="lg">
