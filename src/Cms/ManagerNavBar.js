@@ -9,8 +9,7 @@ class ManagerNavBar extends React.Component {
   render() {
     return (
       <div>
-
-        <nav className="navbar navbar-expand-sm bg-light">
+        <nav className="navbar navbar-expand-sm bg-light navBarManager">
           <ul className="navbar-nav">
             <li className="nav-item active">
               <a className="nav-link" href="#Race" onClick={(e) => this.context.goToMenu(665, e)}>ABM PILOTS <span className="sr-only"></span></a>

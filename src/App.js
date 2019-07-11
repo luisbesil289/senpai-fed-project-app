@@ -181,7 +181,7 @@ class App extends React.Component {
   goToEdit = (piloto) => {
     this.setState({
       section: 664,
-      pilotoToEdit: piloto
+      pilotoToEdit: piloto      
     });
   }
 
@@ -204,8 +204,9 @@ class App extends React.Component {
 
   editPilot = (id, newPilotoData) => {
     this.setState({
-      pilotos: this.state.pilotos.map(item => item.id === id ? newPilotoData : item), section: 664,
-      pilotoToEdit: newPilotoData
+      pilotos: this.state.pilotos.map(item => item.id === id ? newPilotoData : item),
+      section: 664,
+      pilotoToEdit: null
     })
 
   }
@@ -291,12 +292,12 @@ class App extends React.Component {
       return <Home />;
     }
     if (this.state.section === 664) {
+      console.log(this.state.pilotoToEdit);   
       return <PilotForm addPilot={this.addPilot} goToMenu={this.goToMenu} piloto={this.state.pilotoToEdit} />;
     }
     if (this.state.section === 665) {
       return <PilotList
         goToList={this.goToList}
-
         piloto={this.state.pilotoToEdit}
       />;
     }

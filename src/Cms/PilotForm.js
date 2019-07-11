@@ -90,8 +90,9 @@ class PilotForm extends React.Component {
         equipo: this.state.equipo,
         podios: this.state.podios,
         puntos: this.state.puntos,
-        descripcion: this.state.descripcion
+        descripcion: this.state.descripcion        
       });
+     
     } else {
       this.context.addPilot({
         nombre: this.state.nombre,
