@@ -36,17 +36,6 @@ const styles = theme => ({
 class PilotList extends React.Component {
   static contextType = AppContext;
 
-  /* additionalSection() {
-    switch (this.props.section) {
-      case 'newPiloto':
-        return <Typography color="textPrimary">Ingresar nuevo Piloto</Typography>;
-      case 'editPiloto':
-        return <Typography color="textPrimary">{this.props.animal.name}</Typography>;
-      case 'list':
-      default:
-        return null;
-    }
-  } */
   goToNewPilot = () => {
     this.context.goToMenu(664);
   }
@@ -76,6 +65,7 @@ class PilotList extends React.Component {
             <TableHead>
               <TableRow>
                 <TableCell>Id</TableCell>
+                <TableCell>Avatar</TableCell>
                 <TableCell>Nombre</TableCell>
                 <TableCell>Nick</TableCell>
                 <TableCell>Fecha</TableCell>

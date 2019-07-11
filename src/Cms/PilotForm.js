@@ -6,6 +6,8 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+
+
 const styles = theme => ({
   container: {
     display: 'flex',
@@ -27,6 +29,9 @@ const styles = theme => ({
   },
   button: {
     margin: theme.spacing(1),
+  },
+  avatar: {
+    margin: 10,
   },
   menu: {
     width: 200,
@@ -118,7 +123,8 @@ class PilotForm extends React.Component {
         <Paper className={this.props.classes.paper}>
           <Typography variant="h5">
             Pilot information
-          </Typography>
+          </Typography>          
+         
           <TextField
             id="nombre"
             label="Nombre"
