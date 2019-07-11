@@ -44,6 +44,7 @@ class PilotForm extends React.Component {
         id: this.props.piloto.id,
         nombre: this.props.piloto.nombre,
         nick: this.props.piloto.nick,
+        foto: this.props.piloto.foto,        
         fecha: this.props.piloto.fecha,
         pais: this.props.piloto.pais,
         equipo: this.props.piloto.equipo,
@@ -85,6 +86,7 @@ class PilotForm extends React.Component {
         id: this.state.id,
         nombre: this.state.nombre,
         nick: this.state.nick,
+        foto: this.props.piloto.foto,        
         fecha: this.state.fecha,
         pais: this.state.pais,
         equipo: this.state.equipo,
@@ -96,6 +98,7 @@ class PilotForm extends React.Component {
     } else {
       this.context.addPilot({
         nombre: this.state.nombre,
+        foto:'assets/shadow_pilot.png',
         nick: this.state.nick,
         fecha: this.state.fecha,
         pais: this.state.pais,

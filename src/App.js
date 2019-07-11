@@ -193,7 +193,6 @@ class App extends React.Component {
   }
 
   addPilot = (newPilot) => {
-
     this.setState({
       pilotos: [...this.state.pilotos, {
         id: this.getNextPilotId(),
