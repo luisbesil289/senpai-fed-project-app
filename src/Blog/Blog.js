@@ -17,7 +17,7 @@ import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Container from '@material-ui/core/Container';
-import Markdown from './Markdown';
+import Markdown from "./Markdown.1";
 import post1 from './blog-post.1.md';
 import post2 from './blog-post.2.md';
 import post3 from './blog-post.3.md';
@@ -291,15 +291,13 @@ class Blog extends React.Component {
                 <Typography variant="h6" gutterBottom>
                   From the Firehose
               </Typography>
-                <Divider />
-                
-                {posts.map(post => (<Markdown post={post} key={post.substring(0, 40)} />))}
-               {/*  {posts.map(post => (
-                  <Markdown className={this.props.classes.markdown} key={post.substring(0, 40)}>
-                    {post}
-                  </Markdown>
-                ))} */}
-              </Grid>
+              <Divider />
+              {posts.map(xxx => (
+                <Markdown className={this.props.classes.markdown} key={xxx.substring(0, 40)}>
+                  {xxx}
+                </Markdown>
+              ))}
+            </Grid>
               {/* End main content */}
               {/* Sidebar */}
               <Grid item xs={12} md={4}>
