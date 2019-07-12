@@ -292,11 +292,13 @@ class Blog extends React.Component {
                   From the Firehose
               </Typography>
                 <Divider />
-                {posts.map(post => (
+                
+                {posts.map(post => (<Markdown post={post} key={post.substring(0, 40)} />))}
+               {/*  {posts.map(post => (
                   <Markdown className={this.props.classes.markdown} key={post.substring(0, 40)}>
                     {post}
                   </Markdown>
-                ))}
+                ))} */}
               </Grid>
               {/* End main content */}
               {/* Sidebar */}
