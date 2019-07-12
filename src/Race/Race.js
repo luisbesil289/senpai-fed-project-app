@@ -3,7 +3,7 @@ import AppContext from '../AppContext';
 import { withStyles } from '@material-ui/core/styles';
 import './Race.css';
 import News from '../News/News';
-import RacePilots from './RacePilots';
+import RaceCard from './RaceCard';
 import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
@@ -40,7 +40,7 @@ class Race extends React.Component {
         races = this.context.noticias.filter(noticia => noticia.tipo === 'races');
         return (
             <div>
-                <div className="container">
+                {/* <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-sm-12 col-md-6">
                             <a href="https://www.liftoff-game.com/" target="_blank "><img src={"assets/listoff.png"} id="img_p2" alt="falta img"></img></a>
@@ -63,7 +63,7 @@ class Race extends React.Component {
                         </div>
                     </div>
                 </div>
-
+ */}
 
                 <br id="section_pilots" />
                 <div className="pilots_title">
@@ -72,7 +72,9 @@ class Race extends React.Component {
                 <br />
                 <div className="container">
                     <div className="row">
-                        {this.context.pilotos.map(pilot => <RacePilots pilot={pilot} key={pilot.id} />)}
+
+                        {this.context.pilotos.map(pilot => <RaceCard pilot={pilot} key={pilot.id} />)}
+                        
                     </div >
                 </div >
             </div >

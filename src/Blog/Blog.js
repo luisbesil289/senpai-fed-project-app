@@ -1,5 +1,4 @@
 import React from 'react';
-/*  import { makeStyles } from '@material-ui/core/styles'; */ 
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -17,7 +16,7 @@ import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Container from '@material-ui/core/Container';
-import Markdown from "./Markdown.1";
+import Markdown from './Markdown';
 import post1 from './blog-post.1.md';
 import post2 from './blog-post.2.md';
 import post3 from './blog-post.3.md';

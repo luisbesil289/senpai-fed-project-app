@@ -181,7 +181,7 @@ class App extends React.Component {
   goToEdit = (piloto) => {
     this.setState({
       section: 664,
-      pilotoToEdit: piloto      
+      pilotoToEdit: piloto
     });
   }
 
@@ -272,7 +272,7 @@ class App extends React.Component {
 
   currentSection() {
     if (this.state.section === 1) {
-      return <Home />;
+      return <Race />;
     }
 
     if (this.state.section === 2) {
@@ -291,7 +291,7 @@ class App extends React.Component {
       return <Home />;
     }
     if (this.state.section === 664) {
-      console.log(this.state.pilotoToEdit);   
+      console.log(this.state.pilotoToEdit);
       return <PilotForm addPilot={this.addPilot} goToMenu={this.goToMenu} piloto={this.state.pilotoToEdit} />;
     }
     if (this.state.section === 665) {
@@ -311,6 +311,7 @@ class App extends React.Component {
       <div className="App">
         <header>
           <CssBaseline />
+
           <MenuPrincipal goToMenu={this.goToMenu} />
           <Header />
         </header>
