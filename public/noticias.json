@@ -1,0 +1,69 @@
+[
+  {
+    "id": 1,
+    "active": "carousel-item active",
+    "tipo": "news",
+    "foto": "assets/Florida",
+    "video": null,
+    "titulo": "Florida",
+    "bajada": "Primera reunión de pilotos del Uruguay",
+    "fecha": "2018-5-16",
+    "nota": "Lorem ipsum dolor sit amet, consectetur adipis cingelit.Etiam lacinia elit et placerat finibus.Praesent justo metus, pharetra vel nibh sit amet, tinc"id":nt posuere nulla.",
+    "publicacion": "2018-5-16"
+  }, {
+    "id": 2,
+    "active": "carousel-item active",
+    "tipo": "news",
+    "foto": "assets/Florida",
+    "video": null,
+    "titulo": "Florida",
+    "bajada": "Primera reunión de pilotos del Uruguay",
+    "fecha": "2018-5-16",
+    "nota": "Lorem ipsum dolor sit amet, consectetur adipis cingelit.Etiam lacinia elit et placerat finibus.Praesent justo metus, pharetra vel nibh sit amet, tinc"id":nt posuere nulla.",
+    "publicacion": "2018-5-16"
+  }, {
+    "id": 3,
+    "active": "carousel-item active",
+    "tipo": "news",
+    "foto": "assets/Florida",
+    "video": null,
+    "titulo": "Florida",
+    "bajada": "Primera reunión de pilotos del Uruguay",
+    "fecha": "2018-5-16",
+    "nota": "Lorem ipsum dolor sit amet, consectetur adipis cingelit.Etiam lacinia elit et placerat finibus.Praesent justo metus, pharetra vel nibh sit amet, tinc"id":nt posuere nulla.",
+    "publicacion": "2018-5-16"
+  }, {
+    "id": 4,
+    "active": "carousel-item active",
+    "tipo": "news",
+    "foto": "assets/Florida",
+    "video": null,
+    "titulo": "Florida",
+    "bajada": "Primera reunión de pilotos del Uruguay",
+    "fecha": "2018-5-16",
+    "nota": "Lorem ipsum dolor sit amet, consectetur adipis cingelit.Etiam lacinia elit et placerat finibus.Praesent justo metus, pharetra vel nibh sit amet, tinc"id":nt posuere nulla.",
+    "publicacion": "2018-5-16"
+  }, {
+    "id": 5,
+    "active": "carousel-item active",
+    "tipo": "news",
+    "foto": "assets/Florida",
+    "video": null,
+    "titulo": "Florida",
+    "bajada": "Primera reunión de pilotos del Uruguay",
+    "fecha": "2018-5-16",
+    "nota": "Lorem ipsum dolor sit amet, consectetur adipis cingelit.Etiam lacinia elit et placerat finibus.Praesent justo metus, pharetra vel nibh sit amet, tinc"id":nt posuere nulla.",
+    "publicacion": "2018-5-16"
+  }, {
+    "id": 6,
+    "active": "carousel-item active",
+    "tipo": "news",
+    "foto": "assets/Florida",
+    "video": null,
+    "titulo": "Florida",
+    "bajada": "Primera reunión de pilotos del Uruguay",
+    "fecha": "2018-5-16",
+    "nota": "Lorem ipsum dolor sit amet, consectetur adipis cingelit.Etiam lacinia elit et placerat finibus.Praesent justo metus, pharetra vel nibh sit amet, tinc"id":nt posuere nulla.",
+    "publicacion": "2018-5-16"
+  }
+]

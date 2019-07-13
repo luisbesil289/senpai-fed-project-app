@@ -5,42 +5,52 @@ import './Race.css';
 import News from '../News/News';
 import RaceCard from './RaceCard';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+
 
 const styles = theme => ({
     container: {
-      display: 'flex',
-      flexWrap: 'wrap',
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
+    root: {
+        flexGrow: 1,
+        padding: theme.spacing(2),
     },
     paper: {
-      padding: theme.spacing(3, 2),
-      margin: theme.spacing(2, 0),
-      width: '100%'
+        height: 140,
+        width: 100,
     },
     textField: {
-      marginRight: theme.spacing(4),
-      width: 300,
+        marginRight: theme.spacing(0),
+        width: 300,
     },
     textArea: {
     },
     dense: {
-      marginTop: 19,
+        marginTop: 19,
     },
     button: {
-      margin: theme.spacing(1),
+        margin: theme.spacing(1),
     },
     menu: {
-      width: 200,
-    }
-  });
-var races = []
+        width: 200,
+    }, divider: {
 
+        margin: theme.spacing(2, 0),
+    }
+});
+var races = []
 class Race extends React.Component {
+    
     static contextType = AppContext;
+
     render() {
+
         races = this.context.noticias.filter(noticia => noticia.tipo === 'races');
         return (
             <div>
-                 <div className="container">
+                <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-sm-12 col-md-6">
                             <a href="https://www.liftoff-game.com/" target="_blank "><img src={"assets/listoff.png"} id="img_p2" alt="falta img"></img></a>
@@ -63,7 +73,7 @@ class Race extends React.Component {
                         </div>
                     </div>
                 </div>
- 
+
 
                 <br id="section_pilots" />
                 <div className="pilots_title">
@@ -72,9 +82,14 @@ class Race extends React.Component {
                 <br />
                 <div className="container">
                     <div className="row">
+                        <Grid container className={this.props.classes.root} spacing={20}>
+                            <Grid className={this.props.classes.root} item xs={12} spacing={20}>
+                                <Grid container justify="center" className={this.props.classes.root}>
+                                    {this.context.pilotos.map(pilot => <RaceCard pilot={pilot} key={pilot.id} />)}
 
-                        {this.context.pilotos.map(pilot => <RaceCard pilot={pilot} key={pilot.id} />)}
-                        
+                                </Grid>
+                            </Grid>
+                        </Grid>
                     </div >
                 </div >
             </div >
