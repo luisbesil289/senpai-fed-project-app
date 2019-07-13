@@ -1,26 +1,122 @@
-{
-    "pilotos": [{
-    "id": "1",
-    "nombre": "Juan Carlos Rodriguez",
-    "nick": "A_Nube",
-    "foto": "assets/A_nub.jpg",
+[
+  {
+    "id": 1,
+    "nombre": "Juan Rodriguez",
+    "nick": "A_nub",
+    "foto": "assets/pilot_A_nub.jpg",
     "pais": "Argentina",
     "fecha": "1995-5-16",
     "equipo": "Caos",
-    "podios": "1",
-    "Puntos": "120",
+    "podios": 1,
+    "Puntos": 120,
     "descripcion": "El respeto se gana mucho en la competicion, pero A_Nube lo tiene de cada uno de sus compañeros. ¿Por qué? Porque saben que cualquiera que sea la pista, las condiciones, la situación, cuando sus lentes bajan y las luces se apagan, es Anubetime."
   },
   {
-    "id": "2",
+    "id": 2,
     "nombre": "Jose Lopez",
-    "nick": "A_Nube",
-    "foto": "assets/Add1.jpg",
+    "nick": "Add1",
+    "foto": "assets/pilot_Add1.jpg",
     "pais": "Argentina",
     "fecha": "1995-5-16",
     "equipo": "Caos",
-    "podios": "1",
-    "Puntos": "120",
+    "podios": 1,
+    "Puntos": 120,
     "descripcion": "El respeto se gana mucho en la competicion, pero A_Nube lo tiene de cada uno de sus compañeros. ¿Por qué? Porque saben que cualquiera que sea la pista, las condiciones, la situación, cuando sus lentes bajan y las luces se apagan, es Anubetime."
-  }]
-}
+  },
+  {
+    "id": 3,
+    "nombre": "Jose Lopez",
+    "nick": "Dino",
+    "foto": "assets/pilot_Dino.jpg",
+    "pais": "Argentina",
+    "fecha": "1995-5-16",
+    "equipo": "Caos",
+    "podios": 1,
+    "Puntos": 120,
+    "descripcion": "El respeto se gana mucho en la competicion, pero A_Nube lo tiene de cada uno de sus compañeros. ¿Por qué? Porque saben que cualquiera que sea la pista, las condiciones, la situación, cuando sus lentes bajan y las luces se apagan, es Anubetime."
+  },
+  {
+    "id": 4,
+    "nombre": "Jose Lopez",
+    "nick": "Dunkan",
+    "foto": "assets/pilot_Dunkan.jpg",
+    "pais": "Argentina",
+    "fecha": "1995-5-16",
+    "equipo": "Caos",
+    "podios": 1,
+    "Puntos": 120,
+    "descripcion": "El respeto se gana mucho en la competicion, pero A_Nube lo tiene de cada uno de sus compañeros. ¿Por qué? Porque saben que cualquiera que sea la pista, las condiciones, la situación, cuando sus lentes bajan y las luces se apagan, es Anubetime."
+  },
+  {
+    "id": 5,
+    "nombre": "Jose Lopez",
+    "nick": "Gab7070",
+    "foto": "assets/pilot_Gab7070.jpg",
+    "pais": "Argentina",
+    "fecha": "1995-5-16",
+    "equipo": "Caos",
+    "podios": 1,
+    "Puntos": 120,
+    "descripcion": "El respeto se gan. ¿Por qué? Porque saben que cualquiera que sea la pista, las condiciones, la situación, cuando sus lentes bajan y las luces se apagan, es Anubetime."
+  },
+  {
+    "id": 6,
+    "nombre": "Juan Rodriguez",
+    "nick": "Jawz",
+    "foto": "assets/pilot_Jawz.jpg",
+    "pais": "Argentina",
+    "fecha": "1995-5-16",
+    "equipo": "Caos",
+    "podios": 1,
+    "Puntos": 120,
+    "descripcion": "El respeto se gana mucho en la competicion, pero A_Nube lo tiene de cada uno de sus compañeros. ¿Por qué? Porque saben que cualquiera que sea la pista, las condiciones, la situación, cuando sus lentes bajan y las luces se apagan, es Anubetime."
+  },
+  {
+    "id": 7,
+    "nombre": "Jose Lopez",
+    "nick": "Mcstrealle",
+    "foto": "assets/pilot_Mcstrealle.jpg",
+    "pais": "Argentina",
+    "fecha": "1995-5-16",
+    "equipo": "Caos",
+    "podios": 1,
+    "Puntos": 120,
+    "descripcion": "El respeto se gana mucho en la competicion, pero A_Nube lo tiene de cada uno de sus compañeros. ¿Por qué? Porque saben que cualquiera que sea la pista, las condiciones, la situación, cuando sus lentes bajan y las luces se apagan, es Anubetime."
+  },
+  {
+    "id": 8,
+    "nombre": "Jose Lopez",
+    "nick": "Nubb",
+    "foto": "assets/pilot_Nubb.jpg",
+    "pais": "Argentina",
+    "fecha": "1995-5-16",
+    "equipo": "Caos",
+    "podios": 1,
+    "Puntos": 120,
+    "descripcion": "El respeto se gana mucho en la competicion, pero A_Nube lo tiene de cada uno de sus compañeros. ¿Por qué? Porque saben que cualquiera que sea la pista, las condiciones, la situación, cuando sus lentes bajan y las luces se apagan, es Anubetime."
+  },
+  {
+    "id": 9,
+    "nombre": "Jose Lopez",
+    "nick": "Nurk",
+    "foto": "assets/pilot_Nurk.jpg",
+    "pais": "Argentina",
+    "fecha": "1995-5-16",
+    "equipo": "Caos",
+    "podios": 1,
+    "Puntos": 120,
+    "descripcion": "El respeto se gana mucho en la competicion, pero A_Nube lo tiene de cada uno de sus compañeros. ¿Por qué? Porque saben que cualquiera que sea la pista, las condiciones, la situación, cuando sus lentes bajan y las luces se apagan, es Anubetime."
+  },
+  {
+    "id": 10,
+    "nombre": "Jose Lopez",
+    "nick": "Jrod",
+    "foto": "assets/pilot_Jrod.jpg",
+    "pais": "Argentina",
+    "fecha": "1995-5-16",
+    "equipo": "Caos",
+    "podios": 1,
+    "Puntos": 120,
+    "descripcion": "El respeto se gan. ¿Por qué? Porque saben que cualquiera que sea la pista, las condiciones, la situación, cuando sus lentes bajan y las luces se apagan, es Anubetime."
+  }
+]

@@ -13,7 +13,7 @@ import Manager from './Cms/Manager';
 import Footer from './Footer';
 import PilotForm from './Cms/PilotForm';
 import PilotList from './Cms/PilotList';
-import Axios from 'axios';
+import axios from 'axios';
 
 
 class App extends React.Component {
@@ -25,32 +25,7 @@ class App extends React.Component {
       section: 1,
       unblog: '',
       pilotoToEdit: null,
-      pilotos: [],
-      /* ,
-      pilotos: [{
-        id: 1,
-        nombre: 'Juan Carlos Rodriguez',
-        nick: 'A_Nube',
-        foto: 'assets/A_nub.jpg',
-        pais: 'Argentina',
-        fecha: '1995-5-16',
-        equipo: 'Caos',
-        podios: 1,
-        Puntos: 120,
-        descripcion: 'El respeto se gana mucho en la competicion, pero A_Nube lo tiene de cada uno de sus compañeros. ¿Por qué? Porque saben que cualquiera que sea la pista, las condiciones, la situación, cuando sus lentes bajan y las luces se apagan, es Anubetime.'
-      },
-      {
-        id: 2,
-        nombre: 'Juan Carlos Rodriguez',
-        nick: 'A_Nube',
-        foto: 'assets/A_nub.jpg',
-        pais: 'Argentina',
-        fecha: '1995-5-16',
-        equipo: 'Caos',
-        podios: 1,
-        Puntos: 120,
-        descripcion: 'El respeto se gana mucho en la competicion, pero A_Nube lo tiene de cada uno de sus compañeros. ¿Por qué? Porque saben que cualquiera que sea la pista, las condiciones, la situación, cuando sus lentes bajan y las luces se apagan, es Anubetime.'
-      }] */
+      pilotos: [],      
       noticias: [{
         id: 1,
         active: 'carousel-item active',
@@ -151,17 +126,11 @@ class App extends React.Component {
     });
   }
   componentWillMount() {
-
-    Axios.get('../pilotos.json') // JSON File Path
-
+    axios.get(`http://localhost:3000/pilotos.json`)
       .then(res => {
         const pilotos = res.data;
-        console.log("sdsdsd " + pilotos);
-        this.setState({pilotos});
+        this.setState({ pilotos });
       })
-      .catch(function (error) {
-        console.log(error);
-      });
   }
 
   getNextPilotId() {
