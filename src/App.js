@@ -5,7 +5,7 @@ import Container from '@material-ui/core/Container';
 import './App.css';
 import MenuPrincipal from './MenuPrincipal';
 import Header from './Header';
-import Home from './Home';
+import Home from './Home3';
 import Race from './Race/Race';
 import Fly from './Fly/Fly';
 import Blog from './Blog/Blog';
@@ -25,7 +25,7 @@ class App extends React.Component {
       section: 1,
       unblog: '',
       pilotoToEdit: null,
-      pilotos: [],      
+      pilotos: [],
       noticias: [],
       articulos: [],
       blog: [{ //Array con 2 blog de ejemplo
@@ -64,6 +64,11 @@ class App extends React.Component {
       .then(res => {
         const pilotos = res.data;
         this.setState({ pilotos });
+      })
+      axios.get(`http://localhost:3000/noticias.json`)
+      .then(ress => {
+        const noticias = ress.data;
+        this.setState({ noticias });
       })
   }
 
@@ -170,7 +175,7 @@ class App extends React.Component {
 
   currentSection() {
     if (this.state.section === 1) {
-      return <Race />;
+      return <Home />;
     }
 
     if (this.state.section === 2) {

@@ -41,8 +41,7 @@ const styles = theme => ({
     }
 });
 var races = []
-class Race extends React.Component {
-    
+class Race extends React.Component {    
     static contextType = AppContext;
 
     render() {
