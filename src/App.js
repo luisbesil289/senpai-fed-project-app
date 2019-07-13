@@ -272,7 +272,7 @@ class App extends React.Component {
 
   currentSection() {
     if (this.state.section === 1) {
-      return <Race />;
+      return <Home />;
     }
 
     if (this.state.section === 2) {
