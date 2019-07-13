@@ -56,7 +56,7 @@ class RaceCard extends React.Component {
             <CardHeader
               avatar={
                 <Avatar aria-label="Recipe" className={this.props.classes.avatar}>
-                  P
+                  x
           </Avatar>
               }
               action={

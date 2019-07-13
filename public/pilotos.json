@@ -1,0 +1,26 @@
+{
+    "pilotos": [{
+    "id": "1",
+    "nombre": "Juan Carlos Rodriguez",
+    "nick": "A_Nube",
+    "foto": "assets/A_nub.jpg",
+    "pais": "Argentina",
+    "fecha": "1995-5-16",
+    "equipo": "Caos",
+    "podios": "1",
+    "Puntos": "120",
+    "descripcion": "El respeto se gana mucho en la competicion, pero A_Nube lo tiene de cada uno de sus compañeros. ¿Por qué? Porque saben que cualquiera que sea la pista, las condiciones, la situación, cuando sus lentes bajan y las luces se apagan, es Anubetime."
+  },
+  {
+    "id": "2",
+    "nombre": "Jose Lopez",
+    "nick": "A_Nube",
+    "foto": "assets/Add1.jpg",
+    "pais": "Argentina",
+    "fecha": "1995-5-16",
+    "equipo": "Caos",
+    "podios": "1",
+    "Puntos": "120",
+    "descripcion": "El respeto se gana mucho en la competicion, pero A_Nube lo tiene de cada uno de sus compañeros. ¿Por qué? Porque saben que cualquiera que sea la pista, las condiciones, la situación, cuando sus lentes bajan y las luces se apagan, es Anubetime."
+  }]
+}
