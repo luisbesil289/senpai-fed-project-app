@@ -5,7 +5,7 @@ import Container from '@material-ui/core/Container';
 import './App.css';
 import MenuPrincipal from './MenuPrincipal';
 import Header from './Header';
-import Home from './Home3';
+import Home from './Home';
 import Race from './Race/Race';
 import Fly from './Fly/Fly';
 import Blog from './Blog/Blog';
