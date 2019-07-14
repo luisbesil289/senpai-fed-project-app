@@ -64,7 +64,7 @@ class RaceCard extends React.Component {
             />
             <CardContent>
               <Typography variant="body2" color="textSecondary" component="p">
-                {this.props.pilot.descripcion}
+               {this.props.pilot.descripcion} 
               </Typography>
             </CardContent>
             <CardActions disableSpacing>

@@ -183,6 +183,10 @@ class App extends React.Component {
     }
 
     if (this.state.section === 3) {
+      return <Events />;
+    }
+    
+    if (this.state.section === 3) {
       return <Fly />;
     }
 
