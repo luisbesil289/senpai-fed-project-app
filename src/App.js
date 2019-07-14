@@ -37,24 +37,14 @@ class App extends React.Component {
         descripcion: 'Creo que el mejor momento es cuando hay poco o nada de viento, obviamente sin lluvia y de dia, aunque ultimamente han salido camaras que soportan bastante bien la oscuridad.',
         comentarios: [{
           id: 1,
-          titulo: 'Como volar y no morir en el intento',
           usuario: 'Lopez',
           fecha: '2018-6-16',
-          comentario: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable.'
-        }]
-      }, {
-        id: 2,
-        titulo: 'Como volar y no morir en el intento',
-        usuario: 'Lopez',
-        fecha: '2018-6-16',
-        foto: 'assets/DRL_BMW_Welt2018_sw4486.jpg',
-        descripcion: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable.',
-        comentarios: [{
+          comentario: 'There a the majority havinjected hum even slightly believable.'
+        },{
           id: 2,
-          titulo: 'Como volar y no morir en el intento',
           usuario: 'Lopez',
           fecha: '2018-6-16',
-          comentario: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable.'
+          comentario: 'Opino lo mismo.'
         }]
       }]
     });
@@ -182,9 +172,9 @@ class App extends React.Component {
       return <Pilots />;
     }
 
-    if (this.state.section === 3) {
+    /* if (this.state.section === 3) {
       return <Events />;
-    }
+    } */
     
     if (this.state.section === 3) {
       return <Fly />;

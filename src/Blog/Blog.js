@@ -43,7 +43,8 @@ class BlogsList extends React.Component {
       usuario: newBlog.usuario,
       fecha: newBlog.fecha,
       foto: 'assets/DRL_BMW_Welt2018_sw4486.jpg',
-      descripcion: newBlog.descripcion
+      descripcion: newBlog.descripcion,
+      comentarios:[]
     });
   };
 
@@ -61,7 +62,7 @@ class BlogsList extends React.Component {
               <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#myModal2">Nuevo</button>
             </div>
             <hr />
-            {this.context.blog.map(blog => <BlogCard goToBlogComentarios={this.props.goToBlogComentarios} blog={blog} key={blog.id} />)}
+            {this.context.blog.map(blog => <BlogCard goToBlogComentarios={this.props.goToBlogComentarios} blog={blog} key={blog.id} />)} 
             <hr />
             <br />
           </div>         

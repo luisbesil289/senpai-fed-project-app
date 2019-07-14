@@ -1,22 +1,12 @@
 import React from 'react'
 import AppContext from '../AppContext';
 import './Blog.css';
-
-
-function NumberList(props) {
-    const listItems = props.comentarios.map((comentario) =><li key={comentario.id} > {comentario}</li>
-    );
-    return (
-        <ul>{listItems}</ul>
-    );
-}
-
+import BlogComentario from './BlogComentario';
 
 class BlogCard extends React.Component {
     static contextType = AppContext;
-
     render() {
-
+        var coments = this.props.blog.comentarios
         return (
             <div className="row">
                 <div className="col col-12 col-md-4">
@@ -32,14 +22,15 @@ class BlogCard extends React.Component {
                     <hr />
                     <p className="text-blog">comentarios:</p>
                     <div>
-
-                        <NumberList comentarios={this.props.blog.comentarios} />
+                        <hr />
+                        {coments.map(comentario => <BlogComentario comentario={comentario} key={comentario.id} />)}
                     </div>
                     <div>
+                        <hr />
                         <button type="button" className="btn btn-primary" onClick={(e) => this.props.goToBlogComentarios(this.props.blog, e)}>Comentar...</button>
 
                     </div>
-                    <hr />
+
                 </div>
 
                 {/*  MODAL */}
