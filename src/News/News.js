@@ -13,8 +13,8 @@ class HomeNews extends React.Component {
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player"
                 src={this.props.noticia.video}
                 id="widget4"></iframe>
+            }
         }
-    }
     render() {
 
         return (

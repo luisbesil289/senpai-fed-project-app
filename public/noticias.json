@@ -33,9 +33,9 @@
     "nota": "Lorem ipsum dolor sit amet, consectetur adipis cingelit.Etiam lacinia elit et placerat finibus.Praesent justo metus, pharetra vel nibh sit amet, fghnt posuere nulla.",
     "publicacion": "2018-5-16"
   }, {
-    "id": 4,
-    "active": "carousel-item",
-    "tipo": "news",
+    "id": 1,
+    "active": "carousel-item active",
+    "tipo": "races",
     "foto": "assets/Florida.jpg",
     "video": null,
     "titulo": "Florida",
@@ -44,9 +44,9 @@
     "nota": "Lorem ipsum dolor sit amet, consectetur adipis cingelit.Etiam lacinia elit et placerat finibus.Praesent justo metus, pharetra vel nibh sit amet, tifghnt posuere nulla.",
     "publicacion": "2018-5-16"
   }, {
-    "id": 5,
+    "id": 2,
     "active": "carousel-item",
-    "tipo": "news",
+    "tipo": "races",
     "foto": "assets/Florida.jpg",
     "video": null,
     "titulo": "Florida",
@@ -55,11 +55,11 @@
     "nota": "Lorem ipsum dolor sit amet, consectetur adipis cingelit.Etiam lacinia elit et placerat finibus.Praesent justo metus, pharetra vel nibh sit amet, tifghnt posuere nulla.",
     "publicacion": "2018-5-16"
   }, {
-    "id": 6,
+    "id": 3,
     "active": "carousel-item",
-    "tipo": "news",
-    "foto": "assets/Florida.jpg",
-    "video": null,
+    "tipo": "races",
+    "foto": null,
+    "video": "assets/1028166094.mp4",
     "titulo": "Florida",
     "bajada": "Primera reunión de pilotos del Uruguay",
     "fecha": "2018-5-16",

@@ -6,7 +6,7 @@ import './App.css';
 import MenuPrincipal from './MenuPrincipal';
 import Header from './Header';
 import Home from './Home';
-import Race from './Race/Race';
+import Pilots from './Race/Pilots';
 import Fly from './Fly/Fly';
 import Blog from './Blog/Blog';
 import Manager from './Cms/Manager';
@@ -65,7 +65,7 @@ class App extends React.Component {
         const pilotos = res.data;
         this.setState({ pilotos });
       })
-      axios.get(`http://localhost:3000/noticias.json`)
+    axios.get(`http://localhost:3000/noticias.json`)
       .then(ress => {
         const noticias = ress.data;
         this.setState({ noticias });
@@ -179,7 +179,7 @@ class App extends React.Component {
     }
 
     if (this.state.section === 2) {
-      return <Race />;
+      return <Pilots />;
     }
 
     if (this.state.section === 3) {
@@ -194,7 +194,6 @@ class App extends React.Component {
       return <Home />;
     }
     if (this.state.section === 664) {
-      console.log(this.state.pilotoToEdit);
       return <PilotForm addPilot={this.addPilot} goToMenu={this.goToMenu} piloto={this.state.pilotoToEdit} />;
     }
     if (this.state.section === 665) {
@@ -213,9 +212,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <header>
-
           <CssBaseline />
-
           <MenuPrincipal goToMenu={this.goToMenu} />
           <Header />
         </header>
