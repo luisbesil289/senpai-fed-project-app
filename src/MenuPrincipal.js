@@ -16,7 +16,7 @@ class MenuPrincipal extends React.Component {
                                 <a className="nav-link" href="#Home" onClick={(e) => this.props.goToMenu(1, e)}>HOME <span className="sr-only"></span></a>
                             </li>
                             <li className="nav-item active">
-                                <a className="nav-link" href="#Race" onClick={(e) => this.props.goToMenu(2, e)}>RACE <span className="sr-only"></span></a>
+                                <a className="nav-link" href="#Race" onClick={(e) => this.props.goToMenu(2, e)}>PILOTS <span className="sr-only"></span></a>
                             </li>
                             <li className="nav-item active">
                                 <a className="nav-link" href="#Fly" onClick={(e) => this.props.goToMenu(3, e)}>FLY <span className="sr-only"></span></a>
