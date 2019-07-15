@@ -83,7 +83,6 @@ class PilotForm extends React.Component {
   };
 
   handleSubmit = () => {
-
     if (this.props.piloto) {
       // It is an Animal EDIT.
       // Use editAnimal method.
@@ -98,8 +97,7 @@ class PilotForm extends React.Component {
         podios: this.state.podios,
         puntos: this.state.puntos,
         descripcion: this.state.descripcion        
-      });
-     
+      });     
     } else {
       this.context.addPilot({
         nombre: this.state.nombre,
@@ -202,15 +200,11 @@ class PilotForm extends React.Component {
             onChange={this.handleChange('descripcion')}
           />
         </Paper>
-
-
         <div>
           <Button variant="contained" className={this.props.classes.button} onClick={this.cancelForm}>
             Cancel
         </Button>
-
           <Button variant="contained" color="primary" className={this.props.classes.button} onClick={this.handleSubmit}>
-
             {this.props.piloto ? 'Save' : 'Create'}
           </Button>
         </div>

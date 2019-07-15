@@ -20,32 +20,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = ({
-
       section: 1,
       unblog: '',
       pilotoToEdit: null,
-      pilotos: [],
+       pilotos: [],
       noticias: [],
       articulos: [],
-      blog: [{ //Array con 2 blog de ejemplo
-        id: 1,
-        titulo: 'Cuando es recomendable volar?',
-        usuario: 'Rodriguez',
-        fecha: '2013-6-16',
-        foto: 'assets/DRL_BMW_Welt2018_sw4486.jpg',
-        descripcion: 'Creo que el mejor momento es cuando hay poco o nada de viento, obviamente sin lluvia y de dia, aunque ultimamente han salido camaras que soportan bastante bien la oscuridad.',
-        comentarios: [{
-          id: 1,
-          usuario: 'Lopez',
-          fecha: '2018-6-16',
-          comentario: 'There a the majority havinjected hum even slightly believable.'
-        },{
-          id: 2,
-          usuario: 'Lopez',
-          fecha: '2018-6-16',
-          comentario: 'Opino lo mismo.'
-        }]
-      }]
+      blogs: [] 
     });
   }
   componentWillMount() {
@@ -58,6 +39,11 @@ class App extends React.Component {
       .then(ress => {
         const noticias = ress.data;
         this.setState({ noticias });
+      })
+      axios.get(`http://localhost:3000/blogs.json`)
+      .then(ress => {
+        const blogs = ress.data;
+        this.setState({ blogs });
       })
   }
 
@@ -99,7 +85,6 @@ class App extends React.Component {
       section: 664,
       pilotoToEdit: null
     })
-
   }
 
   deletePilot = (id) => {
@@ -107,6 +92,26 @@ class App extends React.Component {
       pilotos: this.state.pilotos.filter(item => item.id !== id)
     });
   }
+
+  getNextBlogId() {
+    var productWithHighestId = this.state.blogs.sort((a, b) => b.id - a.id)[0];
+    if (productWithHighestId === undefined) {
+      return 1; // List is empty, so use 1 as first product id.
+    } else {
+      return productWithHighestId.id + 1; // List is not empty, increase one to the highest id for the next product.
+    }
+  }
+
+  addBlog = (newBlog) => {
+    console.log("Entree a addBlog en App.js");
+    console.log(this.state.blogs.length);  
+    this.setState({
+      blogs: [...this.state.blogs, {
+        id: this.getNextBlogId(),
+        ...newBlog
+      }]
+    });
+  };
 
   goToMenu = (option) => { //recorre las opciones del Menu
     switch (option) {
@@ -211,12 +216,13 @@ class App extends React.Component {
         <AppContext.Provider value={{
           noticias: this.state.noticias,
           pilotos: this.state.pilotos,
-          blog: this.state.blog,
+          blogs: this.state.blogs,
           goToMenu: this.goToMenu,
           editPilot: this.editPilot,
           addPilot: this.addPilot,
           deletePilot: this.deletePilot,
-          goToEdit: this.goToEdit
+          goToEdit: this.goToEdit,
+          addBlog: this.addBlog,
         }}>
           <main>
             <Container maxWidth="lg">
