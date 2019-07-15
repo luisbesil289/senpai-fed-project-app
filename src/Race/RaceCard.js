@@ -1,7 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import AppContext from '../AppContext';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -50,8 +49,7 @@ class RaceCard extends React.Component {
     return (
       <div>
         <React.Fragment>
-          <CssBaseline />
-          <Card className={this.props.classes.card}>
+         <Card className={this.props.classes.card}>
             <CardHeader avatar={<Avatar aria-label="Recipe" className={this.props.classes.avatar}>x</Avatar>}
               action={<IconButton aria-label="Settings"><MoreVertIcon /></IconButton>}
               title={this.props.pilot.nombre}

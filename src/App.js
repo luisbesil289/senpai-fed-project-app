@@ -1,6 +1,5 @@
 import React from 'react';
 import AppContext from './AppContext';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import './App.css';
 import MenuPrincipal from './MenuPrincipal';
@@ -206,7 +205,6 @@ class App extends React.Component {
     return (
       <div className="App">
         <header>
-          <CssBaseline />
           <MenuPrincipal goToMenu={this.goToMenu} />
           <Header />
         </header>
