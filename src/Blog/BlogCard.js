@@ -5,6 +5,27 @@ import BlogComentario from './BlogComentario';
 
 class BlogCard extends React.Component {
     static contextType = AppContext;
+    constructor(props) {
+        super(props);
+        this.state = {
+            id: '',
+            usuario: '',
+            fecha: '2019-07-07',
+            comentario: '',
+        };
+    }
+
+    handleChange = xxx => event => {
+        this.setState({ [xxx]: event.target.value });
+    };  
+
+    addToBlogComentarios = (unBlog) => {        
+        this.props.addToBlogComentarios(unBlog,{
+            usuario: this.state.usuario,
+            fecha: this.state.fecha,
+            comentario: this.state.comentario});
+    }
+
     render() {
         var coments = this.props.blog.comentarios
         return (
@@ -23,18 +44,18 @@ class BlogCard extends React.Component {
                     <p className="text-blog">comentarios:</p>
                     <div>
                         <hr />
-                        {coments.map(comentario => <BlogComentario comentario={comentario} key={comentario.id} />)}
+                        {coments.map(comentario => <BlogComentario comentario={comentario} key={comentario.id} addToBlogComentarios={this.props.addToBlogComentarios}/>)}
                     </div>
                     <div>
                         <hr />
-                        <button type="button" className="btn btn-primary" onClick={(e) => this.props.goToBlogComentarios(this.props.blog, e)}>Comentar...</button>
+                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#ModalComentario">Comentar...</button>
 
                     </div>
 
                 </div>
 
                 {/*  MODAL */}
-                <div className="modal fade" id="myModal" role="dialog">
+                <div className="modal fade" id="ModalComentario" role="form">
                     <div className="modal-dialog">
 
                         {/* MODAL CONTENT */}
@@ -42,12 +63,20 @@ class BlogCard extends React.Component {
                             <div className="modal-header">
                                 <h3 className="modal-title">{this.props.blog.titulo}</h3>
                             </div>
-                            <div className="modal-body">
-                                <img src={this.props.blog.foto} className="img-blog" alt="asdfd"></img>
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-success btn-block btn" data-dismiss="modal">Close</button>
-                            </div>
+                            <form id="ModalFormBlog" className="was-validated">
+                                <div className="form-group">
+                                    <label htmlFor="text">Familia</label>
+                                    <input type="uname" className="form-control" id="usuario" value={this.state.usuario} onChange={this.handleChange('usuario')} placeholder="Ingrese Nombre/Apellido de su Familia" name="fami" required></input>
+                                    <div className="valid-feedback">Valid.</div>
+                                    <div className="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="text">Comentario</label>
+                                    <textarea type="text" className="form-control" placeholder="Comente porque adopto..." value={this.state.comentario} onChange={this.handleChange('comentario')} required></textarea>
+                                </div>
+                                <button type="button" className="btn btn-primary btn-block" onClick={(e) => this.addToBlogComentarios(this.props.blog, e)}>Guardar</button>
+                            </form>
+                            <button type="button" className="btn btn-warning btn-block" data-dismiss="modal" onClick={this.limpiarForm}>Close</button>
                         </div>
                     </div>
                 </div>

@@ -22,11 +22,12 @@ class App extends React.Component {
     this.state = ({
       section: 1,
       unblog: '',
+      unComentario: [],
       pilotoToEdit: null,
-       pilotos: [],
+      pilotos: [],
       noticias: [],
       articulos: [],
-      blogs: [] 
+      blogs: []
     });
   }
   componentWillMount() {
@@ -40,7 +41,7 @@ class App extends React.Component {
         const noticias = ress.data;
         this.setState({ noticias });
       })
-      axios.get(`http://localhost:3000/blogs.json`)
+    axios.get(`http://localhost:3000/blogs.json`)
       .then(ress => {
         const blogs = ress.data;
         this.setState({ blogs });
@@ -103,14 +104,19 @@ class App extends React.Component {
   }
 
   addBlog = (newBlog) => {
-    console.log("Entree a addBlog en App.js");
-    console.log(this.state.blogs.length);  
     this.setState({
       blogs: [...this.state.blogs, {
         id: this.getNextBlogId(),
         ...newBlog
       }]
     });
+  };
+
+  addBlogComentarios = (unBlog) => {
+    this.setState({
+      blogs: this.state.blogs.map(item => item.id === unBlog.id ? item : unBlog),
+      section: 4,
+    })
   };
 
   goToMenu = (option) => { //recorre las opciones del Menu
@@ -176,10 +182,6 @@ class App extends React.Component {
       return <Pilots />;
     }
 
-    /* if (this.state.section === 3) {
-      return <Events />;
-    } */
-    
     if (this.state.section === 3) {
       return <Fly />;
     }
@@ -223,6 +225,7 @@ class App extends React.Component {
           deletePilot: this.deletePilot,
           goToEdit: this.goToEdit,
           addBlog: this.addBlog,
+          addBlogComentarios: this.addBlogComentarios,
         }}>
           <main>
             <Container maxWidth="lg">

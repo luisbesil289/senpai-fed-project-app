@@ -13,7 +13,7 @@ class Blog extends React.Component {
       usuario: '',
       fecha: '',
       foto: '',
-      descripcion: ''
+      descripcion: '',
     };
   }
 
@@ -21,81 +21,116 @@ class Blog extends React.Component {
     this.setState({ [xxx]: event.target.value });
   };
 
-addToBlog = () => {
-  this.context.addBlog({
-    id: this.state.id,
-    titulo: this.state.titulo,
-    usuario: this.state.usuario,
-    fecha: this.state.fecha,
-    foto: 'assets/DRL_BMW_Welt2018_sw4486.jpg',
-    descripcion: this.state.descripcion,
-    comentarios: []});
-}
-
-addToBlogComentarios = (unBlogId) => {
-
-}
+  addToBlog = () => {
+    this.context.addBlog({
+      id: this.state.id,
+      titulo: this.state.titulo,
+      usuario: this.state.usuario,
+      fecha: this.state.fecha,
+      foto: 'assets/DRL_BMW_Welt2018_sw4486.jpg',
+      descripcion: this.state.descripcion,
+      comentarios: []
+    });
+  }
 
 
-render() {
-  return (
-    <div className="container">
-      <div className="row">
-        <div className="col col-12 col-sm-12 col-md-12">
-          <div className="btn-group">
-            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#myModal2">Nuevo</button>
+  getNextBlogIdComentario(unBlog) {
+    var productWithHighestId = unBlog.comentarios.sort((a, b) => b.id - a.id)[0];
+    if (productWithHighestId === undefined) {
+      return 1; // List is empty, so use 1 as first product id.
+    } else {
+      return productWithHighestId.id + 1; // List is not empty, increase one to the highest id for the next product.
+    }
+  }
+
+  addToBlogComentarios = (unBlog, data) => {
+    data.id = this.getNextBlogIdComentario(unBlog);
+    unBlog.comentarios.push({ ...data });
+    this.context.addBlogComentarios(unBlog);
+  }
+
+  render() {
+    const archives = [
+      'March 2020',
+      'February 2020',
+      'January 2020',
+      'December 2019',
+      'November 2019',
+      'October 2019',
+      'September 2019',
+      'August 2019',
+      'July 2019',
+      'June 2019',
+      'May 2019',
+      'April 2019',
+    ];
+
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col col-9 col-sm-9 col-md-9">
+            <div className="btn-group">
+              <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#myModal2">Nuevo</button>
+
+            </div>
+            <hr />
+            {this.context.blogs.map(blog => <BlogCard goToBlogComentarios={this.props.goToBlogComentarios} blog={blog} key={blog.id} addToBlogComentarios={this.addToBlogComentarios} />)}
+            <hr />
+            <br />
           </div>
-          <hr />
-          {this.context.blogs.map(blog => <BlogCard goToBlogComentarios={this.props.goToBlogComentarios} blog={blog} key={blog.id} />)}
-          <hr />
-          <br />
+          <div className="col col-3 col-sm-3 col-md-3">
+            <ul class="list-group">Archive
+             {archives.map(archive => <li className="list-group-item" id="liVertical"> {archive} </li>)}             
+            </ul>
+            <br />
+          </div>
+
+        </div>
+
+        {/*  MODAL */}
+        <div className="modal fade" id="myModal2" role="dialog">
+          <div className="modal-dialog" id="ModalFormBlog">
+
+            {/* MODAL CONTENT */}
+            <div className="modal-content">
+              <form id="ModalFormBlog" className="was-validated">
+                <div className="form-group">
+                  <label htmlFor="uname">Titulo</label>
+                  <input type="text" className="form-control" id="titu" value={this.state.titulo} onChange={this.handleChange('titulo')} placeholder="Ingrese un Titulo ..." name="titu" required></input>
+                  <div className="valid-feedback">Valid.</div>
+                  <div className="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="text">Familia</label>
+                  <input type="uname" className="form-control" id="fami" value={this.state.usuario} onChange={this.handleChange('usuario')} placeholder="Ingrese Nombre/Apellido de su Familia" name="fami" required></input>
+                  <div className="valid-feedback">Valid.</div>
+                  <div className="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="inputFecha">Fecha de Adopcion</label>
+                  <input type="date" className="form-control" id="fech" value={this.state.fecha} onChange={this.handleChange('fecha')} required></input>
+                  <div className="valid-feedback">Valid.</div>
+                  <div className="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="text">Foto</label>
+                  <br />
+                  <br />
+                  <input id="file" type="file" className="form-control" accept="image/png, image/jpeg" onChange={this.handleChange('foto')} />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="text">Comentario</label>
+                  <textarea type="text" className="form-control" placeholder="Comente porque adopto..." value={this.state.descripcion} onChange={this.handleChange('descripcion')} required></textarea>
+                </div>
+                <button type="button" className="btn btn-primary btn-block" onClick={(e) => this.addToBlog(e)}>Guardar</button>
+              </form>
+              <button type="button" className="btn btn-warning btn-block" data-dismiss="modal" onClick={this.limpiarForm}>Close</button>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/*  MODAL */}
-      <div className="modal fade" id="myModal2" role="dialog">
-        <div className="modal-dialog" id="ModalFormBlog">
-
-          {/* MODAL CONTENT */}
-          <div className="modal-content">
-            <form id="ModalFormBlog" className="was-validated">
-              <div className="form-group">
-                <label htmlFor="uname">Titulo</label>
-                <input type="text" className="form-control" id="titu" value={this.state.titulo} onChange={this.handleChange('titulo')} placeholder="Ingrese un Titulo ..." name="titu" required></input>
-                <div className="valid-feedback">Valid.</div>
-                <div className="invalid-feedback">Please fill out this field.</div>
-              </div>
-              <div className="form-group">
-                <label htmlFor="text">Familia</label>
-                <input type="uname" className="form-control" id="fami"value={this.state.usuario} onChange={this.handleChange('usuario')} placeholder="Ingrese Nombre/Apellido de su Familia" name="fami" required></input>
-                <div className="valid-feedback">Valid.</div>
-                <div className="invalid-feedback">Please fill out this field.</div>
-              </div>
-              <div className="form-group">
-                <label htmlFor="inputFecha">Fecha de Adopcion</label>
-                <input type="date" className="form-control" id="fech" value={this.state.fecha} onChange={this.handleChange('fecha')} required></input>
-                <div className="valid-feedback">Valid.</div>
-                <div className="invalid-feedback">Please fill out this field.</div>
-              </div>
-              <div className="form-group">
-                <label htmlFor="text">Foto</label>
-                <br />
-                <br />
-                <input id="file" type="file" className="form-control" accept="image/png, image/jpeg" onChange={this.handleChange('foto')} />
-              </div>
-              <div className="form-group">
-                <label htmlFor="text">Comentario</label>
-                <textarea type="text" className="form-control" placeholder="Comente porque adopto..." value={this.state.descripcion} onChange={this.handleChange('descripcion')} required></textarea>
-              </div>
-              <button type="button" className="btn btn-primary btn-block" onClick={(e) => this.addToBlog(this.unBlog, e)}>Guardar</button>
-            </form>
-            <button type="button" className="btn btn-warning btn-block" data-dismiss="modal" onClick={this.limpiarForm}>Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+    );
+  }
 }
 
 export default Blog;
