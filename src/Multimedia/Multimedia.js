@@ -28,17 +28,21 @@ class Multimedia extends React.Component {
 
         return (
             <div>
-                <div><h2>EVENTS</h2>
-                    <select className="custom-select custom-select-md" onChange={this.changeSeccionFilter}>
-                        <option defaultValue="all">*</option>
-                        <option value="Events">Events</option>
-                        <option value="Free Style">Free Style</option>
-                        <option value="Racer">Racer</option>
-                    </select>
-                </div>
-                <div className="container multimediaContainer">
-                    <div className="row multimediaRow">
-                        {filteredList.map(contenido => <MultimediaCard contenido={contenido} key={contenido.id} />)}
+                <div>
+                    <div className="pilots_title">
+                        <span>CONTENIDO MULTIMEDIA</span></div>
+                    <div className="filtroMultimedia"><span className="tituloFiltroMultimedia">FILTRAR CONTENIDO</span>
+                        <select className="custom-select custom-select-md" onChange={this.changeSeccionFilter}>
+                            <option defaultValue="all">*</option>
+                            <option value="Events">Events</option>
+                            <option value="Free Style">Free Style</option>
+                            <option value="Racer">Racer</option>
+                        </select>
+                    </div>
+                    <div className="container multimediaContainer">
+                        <div className="row multimediaRow">
+                            {filteredList.map(contenido => <MultimediaCard contenido={contenido} key={contenido.id} />)}
+                        </div>
                     </div>
                 </div>
             </div>

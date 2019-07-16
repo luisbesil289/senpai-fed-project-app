@@ -8,15 +8,18 @@ import Typography from '@material-ui/core/Typography';
 
 
 
+
 const styles = theme => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
+
   },
   paper: {
     padding: theme.spacing(3, 2),
     margin: theme.spacing(2, 0),
     width: '100%'
+    
   },
   textField: {
     marginRight: theme.spacing(4),

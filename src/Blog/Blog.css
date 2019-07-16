@@ -6,7 +6,7 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #495057;
+  color:rgb(44, 49, 54);
   background-color: #fff;
   background-clip: padding-box;
   border: 2px solid #ced4da;
@@ -24,7 +24,7 @@
   width: 97%;
 }
 .text-blog{
-  color: white;
+  color: rgb(44, 49, 54);
 }
 .p {
   text-align: center;

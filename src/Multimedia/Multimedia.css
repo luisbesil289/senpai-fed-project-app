@@ -1,10 +1,20 @@
-.multimediaContainer{
+.filtroMultimedia {
+    width: 30%;
+    border: 2px solid white;
     margin: 20px;
     padding: 10px;
 }
 
+.tituloFiltroMultimedia{
+    color: rgb(44, 49, 54);
+}
 
-.multimediaCard{
+.multimediaContainer {
+    margin: 20px;
+    padding: 10px;
+}
+
+.multimediaCard {
     width: 23rem;
     margin-bottom: 20px;
 }

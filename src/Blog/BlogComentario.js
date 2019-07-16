@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 const styles = theme => ({
     typography: {
         align: 'left',
-        color: 'white',
+        color: 'rgb(44, 49, 54)',
         height: 22,
         border: 0,
         borderRadius: 3,
