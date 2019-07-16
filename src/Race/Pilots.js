@@ -40,14 +40,13 @@ const styles = theme => ({
         margin: theme.spacing(2, 0),
     }
 });
-var races = []
+
+
 class Pilots extends React.Component {
     static contextType = AppContext;
 
-    render() {
 
-        races = this.context.noticias.filter(noticia => noticia.tipo === 'races');
-        console.log(races);
+    render() {
         return (
             <div>
                 <br id="section_pilots" />

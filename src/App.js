@@ -8,6 +8,7 @@ import Home from './Home';
 import Pilots from './Race/Pilots';
 import Fly from './Fly/Fly';
 import Blog from './Blog/Blog';
+import Multimedia from './Multimedia/Multimedia';
 import Manager from './Cms/Manager';
 import Footer from './Footer';
 import PilotForm from './Cms/PilotForm';
@@ -24,10 +25,12 @@ class App extends React.Component {
       unblog: '',
       unComentario: [],
       pilotoToEdit: null,
+      contenidoToEdit: null,
       pilotos: [],
       noticias: [],
       articulos: [],
-      blogs: []
+      blogs: [],
+      multimedia: []
     });
   }
   componentWillMount() {
@@ -45,6 +48,11 @@ class App extends React.Component {
       .then(ress => {
         const blogs = ress.data;
         this.setState({ blogs });
+      })
+    axios.get(`http://localhost:3000/multimedia.json`)
+      .then(ress => {
+        const multimedia = ress.data;
+        this.setState({ multimedia });
       })
   }
 
@@ -112,12 +120,26 @@ class App extends React.Component {
     });
   };
 
+  goToBlogComentarios = (unBlog) => {
+    this.setState({
+      unBlog: unBlog,
+      section: 5
+    })
+  }
+
   addBlogComentarios = (unBlog) => {
     this.setState({
       blogs: this.state.blogs.map(item => item.id === unBlog.id ? item : unBlog),
       section: 4,
     })
   };
+
+  goToMultimedia = (contenido) => {
+    this.setState({
+      section: 664,
+      contenidoToEdit: contenido
+    });
+  }
 
   goToMenu = (option) => { //recorre las opciones del Menu
     switch (option) {
@@ -146,6 +168,11 @@ class App extends React.Component {
           section: 5
         });
         break;
+      case 6:
+        this.setState({
+          section: 6
+        });
+        break;
       case 664:
         this.setState({
           section: 664
@@ -166,12 +193,7 @@ class App extends React.Component {
     }
   }
 
-  goToBlogComentarios = (unBlog) => {
-    this.setState({
-      unBlog: unBlog,
-      section: 5
-    })
-  }
+  
 
   currentSection() {
     if (this.state.section === 1) {
@@ -193,6 +215,11 @@ class App extends React.Component {
     if (this.state.section === 5) {
       return <Home />;
     }
+
+    if (this.state.section === 6) {
+      return <Multimedia />;
+    }
+
     if (this.state.section === 664) {
       return <PilotForm addPilot={this.addPilot} goToMenu={this.goToMenu} piloto={this.state.pilotoToEdit} />;
     }
@@ -219,6 +246,7 @@ class App extends React.Component {
           noticias: this.state.noticias,
           pilotos: this.state.pilotos,
           blogs: this.state.blogs,
+          multimedia: this.state.multimedia,
           goToMenu: this.goToMenu,
           editPilot: this.editPilot,
           addPilot: this.addPilot,

@@ -3,6 +3,7 @@ import AppContext from '../AppContext';
 import './Blog.css';
 import BlogCard from './BlogCard';
 
+
 class Blog extends React.Component {
   static contextType = AppContext;
   constructor(props) {
@@ -23,7 +24,7 @@ class Blog extends React.Component {
   };
 
   handleClick = e => {
-    this.setState({ ['fecha']: e.target.value });
+   /*  this.setState({ ['fecha']: () }); */
   };
 
   addToBlog = () => {
@@ -55,18 +56,6 @@ class Blog extends React.Component {
   }
 
   render() {
-    let now = new Date();
-
-let options = {  
-    weekday: 'long',
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
-};
-
-
     const archives = [     
       'March 2020',
       'February 2020',
@@ -85,7 +74,7 @@ let options = {
 
     var filteredList = this.context.blogs
     .filter(item => this.state.fecha === null || this.state.fecha === '' || this.state.fecha === item.fecha)    
-    .sort()
+    .sort((a, b) => (a.fecha > b.fecha) ? 1 : -1)
        
     return (
       <div className="container">
