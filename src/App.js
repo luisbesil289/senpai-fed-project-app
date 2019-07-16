@@ -9,10 +9,12 @@ import Pilots from './Race/Pilots';
 import Fly from './Fly/Fly';
 import Blog from './Blog/Blog';
 import Multimedia from './Multimedia/Multimedia';
+import PilotForm from './Cms/PilotForm';
 import Manager from './Cms/Manager';
 import Footer from './Footer';
-import PilotForm from './Cms/PilotForm';
+import MultimediaForm from './Cms/MultimediaForm';
 import PilotList from './Cms/PilotList';
+import MultimediaList from './Cms/MultimediaList';
 import axios from 'axios';
 
 
@@ -65,11 +67,51 @@ class App extends React.Component {
     }
   }
 
-  goToEdit = (piloto) => {
+  goToEdit = (subseccion, obj) => {
+    console.log(obj);
+    switch (subseccion) {
+      case 'piloto':
+        this.setState({
+          section: 664,
+          pilotoToEdit: obj
+        });
+        break;
+      case 'multimedia':
+        this.setState({
+          section: 662,
+          contenidoToEdit: obj
+        });
+        break;
+      default:
+        return 1;
+    }
+  }
+
+  getNextContenidoId() {
+    var productWithHighestId = this.state.multimedia.sort((a, b) => b.id - a.id)[0];
+    if (productWithHighestId === undefined) {
+      return 1; // List is empty, so use 1 as first product id.
+    } else {
+      return productWithHighestId.id + 1; // List is not empty, increase one to the highest id for the next product.
+    }
+  }
+
+
+  addContenido = (newContenido) => {
     this.setState({
-      section: 664,
-      pilotoToEdit: piloto
+      multimedia: [...this.state.multimedia, {
+        id: this.getNextContenidoId(),
+        ...newContenido
+      }]
     });
+  }
+
+  editContenido = (id, newContenidooData) => {
+    this.setState({
+      multimedia: this.state.multimedia.map(item => item.id === id ? newContenidooData : item),
+      section: 663,
+      contenidoToEdit: null
+    })
   }
 
   goToNew = (piloto) => {
@@ -173,6 +215,16 @@ class App extends React.Component {
           section: 6
         });
         break;
+      case 662:
+        this.setState({
+          section: 662
+        });
+        break;
+      case 663:
+        this.setState({
+          section: 663
+        });
+        break;
       case 664:
         this.setState({
           section: 664
@@ -193,7 +245,7 @@ class App extends React.Component {
     }
   }
 
-  
+
 
   currentSection() {
     if (this.state.section === 1) {
@@ -219,7 +271,12 @@ class App extends React.Component {
     if (this.state.section === 6) {
       return <Multimedia />;
     }
-
+    if (this.state.section === 662) {
+      return <MultimediaForm goToMenu={this.goToMenu} contenido={this.state.contenidoToEdit}/>;
+    }
+    if (this.state.section === 663) {
+      return <MultimediaList />;
+    }
     if (this.state.section === 664) {
       return <PilotForm addPilot={this.addPilot} goToMenu={this.goToMenu} piloto={this.state.pilotoToEdit} />;
     }
@@ -248,6 +305,8 @@ class App extends React.Component {
           blogs: this.state.blogs,
           multimedia: this.state.multimedia,
           goToMenu: this.goToMenu,
+          editContenido: this.editContenido,
+          addContenido: this.addContenido,
           editPilot: this.editPilot,
           addPilot: this.addPilot,
           deletePilot: this.deletePilot,

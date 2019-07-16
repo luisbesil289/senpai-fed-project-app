@@ -13,49 +13,49 @@ const styles = theme => ({
 
   bigAvatar: {
     margin: 10,
-    width: 80,
-    height: 80,
+    width: 30,
+    height: 30,
   },
   menu: {
     width: 200,
   },
   typography: {
     color: 'black',
-    height: 48,
+    height: 30,
     border: 0,
     borderRadius: 3,
   },
 });
 
-class PilotListItem extends React.Component {
+class MultimediaListItem extends React.Component {
   static contextType = AppContext;
-  editPiloto = () => {
-    this.context.goToEdit('piloto', this.props.piloto);
+  editcontenido = () => {
+    this.context.goToEdit('multimedia', this.props.contenido);
   }
 
-  deletePiloto = () => {
-    this.context.deletePilot(this.props.piloto.id);
+  deletecontenido = () => {
+    this.context.deletePilot(this.props.contenido.id);
   }
 
   render() {
     return (
 
       <TableRow>
-        <TableCell component="th" scope="row">{this.props.piloto.id}</TableCell>
-        <TableCell><Avatar alt="Remy Sharp" src={this.props.piloto.foto} className={this.props.classes.bigAvatar} /></TableCell>
+        <TableCell component="th" scope="row">{this.props.contenido.id}</TableCell>
+        <TableCell><Avatar alt="Remy Sharp" src="assets/avatar_youtube.png" className={this.props.classes.bigAvatar} /></TableCell>
         <TableCell>
           <Typography variant="h6" className={this.props.classes.typography} >
-            {this.props.piloto.nombre}
+            {this.props.contenido.nombre}
           </Typography>
         </TableCell>
-        <TableCell>{this.props.piloto.nick}</TableCell>
-        <TableCell>{this.props.piloto.fecha}</TableCell>
-        <TableCell>{this.props.piloto.pais}</TableCell>
+        <TableCell>{this.props.contenido.seccion}</TableCell>
+        <TableCell>{this.props.contenido.fecha}</TableCell>
+        <TableCell>{this.props.contenido.url}</TableCell>
         <TableCell align="right">
-          <IconButton aria-label="Edit" onClick={this.editPiloto}>
+          <IconButton aria-label="Edit" onClick={this.editcontenido}>
             <EditIcon fontSize="small" />
           </IconButton>
-          <IconButton aria-label="Delete" onClick={this.deletePiloto}>
+          <IconButton aria-label="Delete" onClick={this.deletecontenido}>
             <DeleteIcon fontSize="small" />
           </IconButton>
         </TableCell>
@@ -65,4 +65,4 @@ class PilotListItem extends React.Component {
   }
 }
 
-export default withStyles(styles)(PilotListItem);
+export default withStyles(styles)(MultimediaListItem);
