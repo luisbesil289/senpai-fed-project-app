@@ -18,7 +18,12 @@ class Blog extends React.Component {
   }
 
   handleChange = xxx => event => {
+    console.log(xxx);
     this.setState({ [xxx]: event.target.value });
+  };
+
+  handleClick = e => {
+    this.setState({ ['fecha']: e.target.value });
   };
 
   addToBlog = () => {
@@ -50,7 +55,19 @@ class Blog extends React.Component {
   }
 
   render() {
-    const archives = [
+    let now = new Date();
+
+let options = {  
+    weekday: 'long',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+};
+
+
+    const archives = [     
       'March 2020',
       'February 2020',
       'January 2020',
@@ -64,7 +81,12 @@ class Blog extends React.Component {
       'May 2019',
       'April 2019',
     ];
+ 
 
+    var filteredList = this.context.blogs
+    .filter(item => this.state.fecha === null || this.state.fecha === '' || this.state.fecha === item.fecha)    
+    .sort()
+       
     return (
       <div className="container">
         <div className="row">
@@ -74,13 +96,18 @@ class Blog extends React.Component {
 
             </div>
             <hr />
-            {this.context.blogs.map(blog => <BlogCard goToBlogComentarios={this.props.goToBlogComentarios} blog={blog} key={blog.id} addToBlogComentarios={this.addToBlogComentarios} />)}
+            {filteredList.map(blog => <BlogCard goToBlogComentarios={this.props.goToBlogComentarios} blog={blog} key={blog.id} addToBlogComentarios={this.addToBlogComentarios} />).sort()}
             <hr />
             <br />
           </div>
           <div className="col col-3 col-sm-3 col-md-3">
-            <ul class="list-group">Archive
-             {archives.map(archive => <li className="list-group-item" id="liVertical"> {archive} </li>)}             
+            <ul className="list-group">Archive
+           {/* 
+              
+             {archives.map((archive, index) => <li className="list-group-item" id="liVertical" onClick={this.handleClick} key={index}> {archive}</li>)}
+            
+            */}                                                                                          
+            {archives.map((archive, index) => <button type="button" className="btn btn-primary btn-block" onClick={(e) => this.handleClick(e)} key={index}> {archive}</button>)} 
             </ul>
             <br />
           </div>

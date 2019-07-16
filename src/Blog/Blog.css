@@ -46,6 +46,8 @@ h4 {
 }
 
 #liVertical {
+  margin-top: 20px;
+  padding: 10px;
   background-color: #495057;
   color: white;
   display: inline-block;
