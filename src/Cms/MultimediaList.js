@@ -54,6 +54,7 @@ class MultimediaList extends React.Component {
 
 
   render() {
+    
     return (
       <div>
         <ManagerNavBar goToMenu={this.props.goToMenu} />
@@ -76,7 +77,6 @@ class MultimediaList extends React.Component {
             </TableHead>
             <TableBody>
               {this.context.multimedia.map(item => (<MultimediaListItem contenido={item} key={item.id} />))}
-
             </TableBody>
           </Table>
         </Paper>

@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "nombre": "Dunkan, Fastest Lap, Boston | Drone Racing League",
+    "nombre": "Dunkan, Fastest Lap, Boston",
     "tipo": "video",
     "url": "https://www.youtube.com/embed/MrT_doGE4wk",
     "seccion": "Events",
@@ -19,7 +19,7 @@
   },
   {
     "id": 3,
-    "nombre": "The First Race Of The Season | Drone Racing League 2018",
+    "nombre": "The First Race Of The Season, Drone Racing League 2018",
     "tipo": "video",
     "url": "https://www.youtube.com/embed/NtZQHayEgQ8",
     "seccion": "Events",
@@ -28,7 +28,7 @@
   },
   {
     "id": 4,
-    "nombre": "Race",
+    "nombre": "Race 1",
     "tipo": "video",
     "url": "https://www.youtube.com/embed/AUl9WGI-l24",
     "seccion": "Events",
@@ -37,7 +37,7 @@
   },
   {
     "id": 5,
-    "nombre": "Race",
+    "nombre": "Race 2",
     "tipo": "video",
     "url": "https://www.youtube.com/embed/hm4EQfMQShY",
     "seccion": "Events",
@@ -46,7 +46,7 @@
   },
   {
     "id": 6,
-    "nombre": "Race",
+    "nombre": "Race 3",
     "tipo": "video",
     "url": "https://www.youtube.com/embed/wJ8IuY4LlMA",
     "seccion": "Events",
@@ -55,7 +55,7 @@
   },
   {
     "id": 7,
-    "nombre": "Race",
+    "nombre": "Race 4",
     "tipo": "video",
     "url": "https://www.youtube.com/embed/bBb_kSO3vTo",
     "seccion": "Free Style",

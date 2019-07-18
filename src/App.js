@@ -97,6 +97,12 @@ class App extends React.Component {
     }
   }
 
+  goToNew = (piloto) => {
+    this.setState({
+      section: 664,
+      pilotoToEdit: piloto
+    });
+  }
 
   addContenido = (newContenido) => {
     this.setState({
@@ -107,20 +113,22 @@ class App extends React.Component {
     });
   }
 
-  editContenido = (id, newContenidooData) => {
+  editContenido = (id, newContenidoData) => {
     this.setState({
-      multimedia: this.state.multimedia.map(item => item.id === id ? newContenidooData : item),
-      section: 663,
+      multimedia: this.state.multimedia.map(item => item.id === id ? newContenidoData : item),
+      section: 662,
       contenidoToEdit: null
     })
   }
-
-  goToNew = (piloto) => {
+  editPilot = (id, newPilotoData) => {
     this.setState({
+      pilotos: this.state.pilotos.map(item => item.id === id ? newPilotoData : item),
       section: 664,
-      pilotoToEdit: piloto
-    });
+      pilotoToEdit: null
+    })
   }
+
+  
 
   addPilot = (newPilot) => {
     this.setState({
@@ -131,14 +139,7 @@ class App extends React.Component {
     });
   }
 
-  editPilot = (id, newPilotoData) => {
-    this.setState({
-      pilotos: this.state.pilotos.map(item => item.id === id ? newPilotoData : item),
-      section: 664,
-      pilotoToEdit: null
-    })
-  }
-
+  
   deletePilot = (id) => {
     this.setState({
       pilotos: this.state.pilotos.filter(item => item.id !== id)
@@ -279,7 +280,7 @@ class App extends React.Component {
       return <MultimediaList />;
     }
     if (this.state.section === 664) {
-      return <PilotForm addPilot={this.addPilot} goToMenu={this.goToMenu} piloto={this.state.pilotoToEdit} />;
+      return <PilotForm goToMenu={this.goToMenu} addPilot={this.addPilot} piloto={this.state.pilotoToEdit} />;
     }
     if (this.state.section === 665) {
       return <PilotList

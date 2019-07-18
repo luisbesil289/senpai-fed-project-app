@@ -75,7 +75,6 @@ class PilotList extends React.Component {
             </TableHead>
             <TableBody>
               {this.context.pilotos.map(item => (<PilotListItem piloto={item} key={item.id} />))}
-
             </TableBody>
           </Table>
         </Paper>

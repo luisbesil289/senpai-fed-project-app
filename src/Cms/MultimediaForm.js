@@ -79,9 +79,8 @@ class MultimediaForm extends React.Component {
 
   handleSubmit = () => {
     if (this.props.contenido) {     
-      // It is an Animal EDIT.
-      // Use editAnimal method.
-      this.context.editContenido(this.props.contenido.id, {
+    this.context.editContenido(this.state.id, {
+        id:this.state.id,
         nombre: this.state.nombre,
         tipo: this.state.tipo,
         url: this.state.url,        
@@ -100,7 +99,7 @@ class MultimediaForm extends React.Component {
       });
     }
 
-    this.props.goToMenu(662);
+    this.props.goToMenu(663);
   }
 
   render() {
@@ -175,7 +174,7 @@ class MultimediaForm extends React.Component {
             Cancel
         </Button>
           <Button variant="contained" color="primary" className={this.props.classes.button} onClick={this.handleSubmit}>
-            {this.props.piloto ? 'Save' : 'Create'}
+            {this.props.contenido ? 'Save' : 'Create'}
           </Button>
         </div>
       </form>

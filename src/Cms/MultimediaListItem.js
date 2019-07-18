@@ -37,12 +37,19 @@ class MultimediaListItem extends React.Component {
     this.context.deletePilot(this.props.contenido.id);
   }
 
+  concatPath = () => {
+    var String_1 = this.context.url ;
+    var String_2 = 'assets/avatar_youtube.png' ;
+    var String_3 = String_1 + String_2;
+     return String_3;
+ }
+
   render() {
     return (
 
       <TableRow>
         <TableCell component="th" scope="row">{this.props.contenido.id}</TableCell>
-        <TableCell><Avatar alt="Remy Sharp" src="assets/avatar_youtube.png" className={this.props.classes.bigAvatar} /></TableCell>
+        <TableCell><Avatar alt="Remy Sharp" src={this.concatPath()} className={this.props.classes.bigAvatar} /></TableCell>
         <TableCell>
           <Typography variant="h6" className={this.props.classes.typography} >
             {this.props.contenido.nombre}
