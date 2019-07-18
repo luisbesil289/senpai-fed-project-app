@@ -37,12 +37,21 @@ class PilotListItem extends React.Component {
     this.context.deletePilot(this.props.piloto.id);
   }
 
+  CombineTwoStrings = () => {
+    var String_1 = this.context.url ;
+    var String_2 = this.props.piloto.foto ;
+    var String_3 = String_1 + String_2;
+     return String_3;
+ }
+
   render() {
+
+  
     return (
 
       <TableRow>
         <TableCell component="th" scope="row">{this.props.piloto.id}</TableCell>
-        <TableCell><Avatar alt="Remy Sharp" src={this.props.piloto.foto} className={this.props.classes.bigAvatar} /></TableCell>
+        <TableCell><Avatar alt="Remy Sharp" src={this.CombineTwoStrings()} className={this.props.classes.bigAvatar} /></TableCell>
         <TableCell>
           <Typography variant="h6" className={this.props.classes.typography} >
             {this.props.piloto.nombre}

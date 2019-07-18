@@ -25,6 +25,7 @@ class App extends React.Component {
     this.state = ({
       section: 1,
       unblog: '',
+      url:'http://localhost:3000/',
       unComentario: [],
       pilotoToEdit: null,
       contenidoToEdit: null,
@@ -187,12 +188,12 @@ class App extends React.Component {
     switch (option) {
       case 1:
         this.setState({
-          section: 1
+          section: 1,
         });
         break;
       case 2:
         this.setState({
-          section: 2
+          section: 2,
         });
         break;
       case 3:
@@ -299,11 +300,12 @@ class App extends React.Component {
           <MenuPrincipal goToMenu={this.goToMenu} />
           <Header />
         </header>
-        <AppContext.Provider value={{
+        <AppContext.Provider value={{          
           noticias: this.state.noticias,
           pilotos: this.state.pilotos,
           blogs: this.state.blogs,
           multimedia: this.state.multimedia,
+          url: this.state.url,
           goToMenu: this.goToMenu,
           editContenido: this.editContenido,
           addContenido: this.addContenido,

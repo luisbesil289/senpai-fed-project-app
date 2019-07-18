@@ -14,10 +14,10 @@ class ManagerNavBar extends React.Component {
         <nav className="navbar navbar-expand-sm bg-light navBarManager">
           <ul className="navbar-nav">
             <li className="nav-item active">
-             <Link to="/abm_pilots" className="nav-link" onClick={(e) => this.context.goToMenu(665, e)}>ABM PILOTS <span className="sr-only"></span></Link>
+             <Link to="/manager/abm_pilots" className="nav-link" onClick={(e) => this.context.goToMenu(665, e)}>ABM PILOTS <span className="sr-only"></span></Link>
             </li>
             <li className="nav-item active">
-            <Link to="/abm_multimedia" className="nav-link" onClick={(e) => this.context.goToMenu(663, e)}>ABM MULTIMEDIA <span className="sr-only"></span></Link>
+            <Link to="/manager/abm_multimedia" className="nav-link" onClick={(e) => this.context.goToMenu(663, e)}>ABM MULTIMEDIA <span className="sr-only"></span></Link>
             </li>
             <li className="nav-item active">
             <Link to="/home" className="nav-link" onClick={(e) => this.context.goToMenu(1, e)}>ABM NEWS <span className="sr-only"></span></Link>

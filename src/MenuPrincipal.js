@@ -1,6 +1,6 @@
 import React from 'react';
 import './MenuPrincipal.css';
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
 class MenuPrincipal extends React.Component {
@@ -17,22 +17,22 @@ class MenuPrincipal extends React.Component {
                         <div className="menuHorizontal collapse navbar-collapse" id="collapsibleNavbar">
                             <ul className="navbar-nav ml-auto text-right">
                                 <li className="nav-item active">
-                                <Link to="/" className="nav-link" onClick={(e) => this.props.goToMenu(1, e)}>HOME <span className="sr-only"></span></Link>                                    
+                                    <Link to="/" className="nav-link" onClick={(e) => this.props.goToMenu(1, e)}>HOME <span className="sr-only"></span></Link>
                                 </li>
                                 <li className="nav-item active">
-                                <Link to="/pilots" className="nav-link" onClick={(e) => this.props.goToMenu(2, e)}>PILOTS <span className="sr-only"></span></Link>
+                                    <Link to="/pilots" className="nav-link" onClick={(e) => this.props.goToMenu(2, e)}>PILOTS <span className="sr-only"></span></Link>
                                 </li>
                                 <li className="nav-item active">
-                                <Link to="/fly" className="nav-link" onClick={(e) => this.props.goToMenu(3, e)}>FLY <span className="sr-only"></span></Link>
+                                    <Link to="/fly" className="nav-link" onClick={(e) => this.props.goToMenu(3, e)}>FLY <span className="sr-only"></span></Link>
                                 </li>
                                 <li className="nav-item active">
-                                <Link to="/blog" className="nav-link" onClick={(e) => this.props.goToMenu(4, e)}>BLOG <span className="sr-only"></span></Link>
+                                    <Link to="/blog" className="nav-link" onClick={(e) => this.props.goToMenu(4, e)}>BLOG <span className="sr-only"></span></Link>
                                 </li>
                                 <li className="nav-item active">
-                                <Link to="/view" className="nav-link" onClick={(e) => this.props.goToMenu(6, e)}>VIEW <span className="sr-only"></span></Link>
+                                    <Link to="/view" className="nav-link" onClick={(e) => this.props.goToMenu(6, e)}>VIEW <span className="sr-only"></span></Link>
                                 </li>
                                 <li className="nav-item">
-                                <Link to="/manager" className="nav-link" onClick={(e) => this.props.goToMenu(666, e)}>MANAGER <span className="sr-only"></span></Link>
+                                    <Link to="/manager" className="nav-link" onClick={(e) => this.props.goToMenu(666, e)}>MANAGER <span className="sr-only"></span></Link>
                                 </li>
                             </ul>
                             <div className="login-container" data-toggle="collapse">
@@ -40,6 +40,8 @@ class MenuPrincipal extends React.Component {
                             </div>
                         </div>
                     </nav>
+                    <Route exact path="/" />
+                    <Route path="/pilots" />
                 </div>
             </Router>
         )
