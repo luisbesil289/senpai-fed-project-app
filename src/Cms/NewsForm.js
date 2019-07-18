@@ -7,7 +7,6 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 
-
 const styles = theme => ({
   container: {
     display: 'flex',
@@ -42,29 +41,36 @@ class NewsForm extends React.Component {
   static contextType = AppContext;
   constructor(props) {
     super(props);
-    if (this.props.contenido) {
+    console.log("aca?: " + this.props.news);
+    if (this.props.news) {
       // It is an Animal EDIT.
       // The form starts with the values of the animal to edit.
       this.state = {
-        id: this.props.contenido.id,
-        nombre: this.props.contenido.nombre,
-        tipo: this.props.contenido.tipo,
-        url: this.props.contenido.url,        
-        seccion: this.props.contenido.seccion,
-        fecha: this.props.contenido.fecha,        
-        descripcion: this.props.contenido.descripcion
+        id: this.props.news.id,
+        active: this.props.news.active,
+        tipo: this.props.news.tipo,
+        foto: this.props.news.foto,
+        video: this.props.news.video,
+        titulo: this.props.news.titulo,
+        bajada: this.props.news.bajada,
+        fecha: this.props.news.fecha,
+        nota: this.props.news.nota,
+        publicacion: this.props.news.publicacion
       };
     } else {
       // It is a NEW Animal.
       // The form starts with empty values.
       this.state = {
         id: '',
-        nombre: '',
+        active: '',
         tipo: '',
-        url: '',
-        seccion: '',
+        foto: '',
+        video: '',
+        titulo: '',
+        bajada: '',
         fecha: '',
-        descripcion: ''
+        nota: '',
+        publicacion: ''
       };
     }
   }
@@ -74,32 +80,37 @@ class NewsForm extends React.Component {
   };
 
   cancelForm = () => {
-    this.context.goToMenu(663);
+    this.context.goToMenu(661);
   };
 
   handleSubmit = () => {
-    if (this.props.contenido) {     
-    this.context.editContenido(this.state.id, {
-        id:this.state.id,
-        nombre: this.state.nombre,
+    if (this.props.news) {
+      this.context.editNews(this.state.id, {
+        id: this.state.id,
+        active: this.state.active,
         tipo: this.state.tipo,
-        url: this.state.url,        
-        seccion: this.state.seccion,
+        foto: this.state.foto,
+        video: this.state.video,
+        titulo: this.state.titulo,
+        bajada: this.state.bajada,
         fecha: this.state.fecha,
-        descripcion: this.state.descripcion        
-      });     
+        nota: this.state.nota,
+        publicacion: this.state.publicacion
+      });
     } else {
-      this.context.addContenido({
-        nombre: this.state.nombre,
+      this.context.addNews({
+        active: this.state.active,
         tipo: this.state.tipo,
-        url: this.state.url,        
-        seccion: this.state.seccion,
+        foto: this.state.foto,
+        video: this.state.video,
+        titulo: this.state.titulo,
+        bajada: this.state.bajada,
         fecha: this.state.fecha,
-        descripcion: this.state.descripcion        
+        nota: this.state.nota,
+        publicacion: this.state.publicacion
       });
     }
-
-    this.props.goToMenu(663);
+    this.props.goToMenu(661);
   }
 
   render() {
@@ -107,66 +118,66 @@ class NewsForm extends React.Component {
       <form className={this.props.classes.container} noValidate autoComplete="off">
         <Paper className={this.props.classes.paper}>
           <Typography variant="h5">
-            Contenido
-          </Typography>          
-         
+            Noticia
+          </Typography>
+
           <TextField
-            id="nombre"
-            label="Nombre"
+            id="titulo"
+            label="titulo"
             className={this.props.classes.textField}
-            value={this.state.nombre}
-            onChange={this.handleChange('nombre')}
+            value={this.state.titulo}
+            onChange={this.handleChange('titulo')}
             margin="normal"
           />
 
           <TextField
-            id="tipo"
-            label="tipo"
+            id="foto"
+            label="foto"
             className={this.props.classes.textField}
-            value={this.state.tipo}
-            onChange={this.handleChange('tipo')}
+            value={this.state.foto}
+            onChange={this.handleChange('foto')}
             margin="normal"
           />
 
           <TextField
-            id="fecha"
-            label="Fecha de Nacimiento"
+            id="bajada"
+            label="bajada"
             className={this.props.classes.textField}
-            value={this.state.fecha}
-            onChange={this.handleChange('fecha')}
+            value={this.state.bajada}
+            onChange={this.handleChange('bajada')}
             margin="normal"
             placeholder="YYYY-MM-DD"
             helperText="Format: YYYY-MM-DD - Example: 2018-07-06"
           />
 
           <TextField
-            id="url"
-            label="url"
+            id="fecha"
+            label="fecha"
             className={this.props.classes.textField}
-            value={this.state.url}
-            onChange={this.handleChange('url')}
+            value={this.state.fecha}
+            onChange={this.handleChange('fecha')}
             margin="normal"
           />
 
           <TextField
-            id="seccion"
-            label="seccion"
+            id="nota"
+            label="nota"
             className={this.props.classes.textField}
-            value={this.state.seccion}
-            onChange={this.handleChange('seccion')}
+            value={this.state.nota}
+            onChange={this.handleChange('nota')}
             margin="normal"
           />
 
           <TextField
-            id="descripcion"
-            label="Descripción"
+            id="publicacion"
+            label="publicacion"
             className={this.props.classes.textArea}
             placeholder="Very cute, funny and playful"
             helperText="Please add an animal description, appereance, behaviour, mood..."
             fullWidth
             margin="normal"
-            value={this.state.descripcion}
-            onChange={this.handleChange('descripcion')}
+            value={this.state.publicacion}
+            onChange={this.handleChange('publicacion')}
           />
         </Paper>
         <div>
@@ -174,7 +185,7 @@ class NewsForm extends React.Component {
             Cancel
         </Button>
           <Button variant="contained" color="primary" className={this.props.classes.button} onClick={this.handleSubmit}>
-            {this.props.contenido ? 'Save' : 'Create'}
+            {this.props.news ? 'Save' : 'Create'}
           </Button>
         </div>
       </form>

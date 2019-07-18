@@ -98,7 +98,7 @@ class App extends React.Component {
       case 'news':
         this.setState({
           section: 660,
-          contenidoToEdit: obj
+          newsToEdit: obj
         });
         break;
       default:
@@ -138,6 +138,13 @@ class App extends React.Component {
       contenidoToEdit: null
     })
   }
+
+  deleteContenido = (id) => {
+    this.setState({
+      multimedia: this.state.multimedia.filter(item => item.id !== id)
+    });
+  }
+
   editPilot = (id, newPilotoData) => {
     this.setState({
       pilotos: this.state.pilotos.map(item => item.id === id ? newPilotoData : item),
@@ -145,8 +152,6 @@ class App extends React.Component {
       pilotoToEdit: null
     })
   }
-
-
 
   addPilot = (newPilot) => {
     this.setState({
@@ -175,7 +180,7 @@ class App extends React.Component {
 
   addNews = (newNews) => {
     this.setState({
-      multimedia: [...this.state.noticias, {
+      noticias: [...this.state.noticias, {
         id: this.getNextNewsId(),
         ...newNews
       }]
@@ -190,6 +195,11 @@ class App extends React.Component {
     })
   }
 
+  deleteNews = (id) => {
+    this.setState({
+      noticias: this.state.noticias.filter(item => item.id !== id)
+    });
+  }
 
   addBlog = (newBlog) => {
     this.setState({
@@ -362,8 +372,12 @@ class App extends React.Component {
           multimedia: this.state.multimedia,
           url: this.state.url,
           goToMenu: this.goToMenu,
+          editNews: this.editNews,
+          addNews: this.addNews,
+          deleteNews: this.deleteNews,
           editContenido: this.editContenido,
           addContenido: this.addContenido,
+          deleteContenido: this.deleteContenido,
           editPilot: this.editPilot,
           addPilot: this.addPilot,
           deletePilot: this.deletePilot,

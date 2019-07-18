@@ -34,12 +34,12 @@ class NewsListItem extends React.Component {
   }
 
   deletenews = () => {
-    this.context.deletePilot(this.props.news.id);
+    this.context.deleteNews(this.props.news.id);
   }
 
   concatPath = () => {
     var String_1 = this.context.url ;
-    var String_2 = 'assets/avatar_youtube.png' ;
+    var String_2 = this.props.news.foto ;
     var String_3 = String_1 + String_2;
      return String_3;
  }
@@ -52,12 +52,13 @@ class NewsListItem extends React.Component {
         <TableCell><Avatar alt="Remy Sharp" src={this.concatPath()} className={this.props.classes.bigAvatar} /></TableCell>
         <TableCell>
           <Typography variant="h6" className={this.props.classes.typography} >
-            {this.props.news.nombre}
+            {this.props.news.titulo}
           </Typography>
         </TableCell>
-        <TableCell>{this.props.news.seccion}</TableCell>
+        <TableCell>{this.props.news.bajada}</TableCell>
         <TableCell>{this.props.news.fecha}</TableCell>
-        <TableCell>{this.props.news.url}</TableCell>
+        <TableCell>{this.props.news.nota}</TableCell>
+        <TableCell>{this.props.news.publicacion}</TableCell>
         <TableCell align="right">
           <IconButton aria-label="Edit" onClick={this.editnews}>
             <EditIcon fontSize="small" />
