@@ -81,8 +81,7 @@ class App extends React.Component {
   }
 
   goToEdit = (subseccion, obj) => {
-    console.log(obj);
-    switch (subseccion) {
+   switch (subseccion) {
       case 'piloto':
         this.setState({
           section: 664,

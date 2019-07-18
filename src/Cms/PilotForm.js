@@ -60,7 +60,7 @@ class PilotForm extends React.Component {
         podios: this.props.piloto.podios,
         puntos: this.props.piloto.puntos,
         descripcion: this.props.piloto.descripcion,
-        
+
       };
     } else {
       // It is a NEW Animal.
@@ -75,7 +75,7 @@ class PilotForm extends React.Component {
         podios: '',
         puntos: '',
         descripcion: '',
-        
+
       };
     }
   }
@@ -85,15 +85,15 @@ class PilotForm extends React.Component {
 
   handleChange = xxx => event => {
     this.setState({ [xxx]: event.target.value });
-    this.setState({dialogMessage: false});
-    
+    this.setState({ dialogMessage: false });
+
   };
 
   cancelForm = () => {
     this.context.goToMenu(666);
   };
 
-  handleSubmit = () => {    
+  handleSubmit = () => {
     if (this.props.piloto) {
       // It is an Animal EDIT.
       // Use editAnimal method.
@@ -122,12 +122,8 @@ class PilotForm extends React.Component {
         descripcion: this.state.descripcion
       });
     }
-
     this.props.goToMenu(665);
-
   }
-
-
 
   render() {
     const { dialogMessage } = this.state;
@@ -223,7 +219,7 @@ class PilotForm extends React.Component {
         </Button>
           <Button variant="contained" color="primary" className={this.props.classes.button} onClick={this.handleSubmit}>
             {this.props.piloto ? 'Save' : 'Create'}
-          </Button>          
+          </Button>
         </div>
       </form>
     );
