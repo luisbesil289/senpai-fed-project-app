@@ -34,7 +34,7 @@ class MultimediaListItem extends React.Component {
   }
 
   deletecontenido = () => {
-    this.context.deletePilot(this.props.contenido.id);
+    this.context.deleteContenido(this.props.contenido.id);
   }
 
   concatPath = () => {
