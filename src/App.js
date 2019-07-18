@@ -9,12 +9,14 @@ import Pilots from './Race/Pilots';
 import Fly from './Fly/Fly';
 import Blog from './Blog/Blog';
 import Multimedia from './Multimedia/Multimedia';
-import PilotForm from './Cms/PilotForm';
 import Manager from './Cms/Manager';
 import Footer from './Footer';
+import PilotForm from './Cms/PilotForm';
 import MultimediaForm from './Cms/MultimediaForm';
+import NewsForm from './Cms/NewsForm';
 import PilotList from './Cms/PilotList';
 import MultimediaList from './Cms/MultimediaList';
+import NewsList from './Cms/NewsList';
 import axios from 'axios';
 
 
@@ -25,10 +27,11 @@ class App extends React.Component {
     this.state = ({
       section: 1,
       unblog: '',
-      url:'http://localhost:3000/',
+      url: 'http://localhost:3000/',
       unComentario: [],
       pilotoToEdit: null,
       contenidoToEdit: null,
+      newsToEdit: null,
       pilotos: [],
       noticias: [],
       articulos: [],
@@ -68,6 +71,15 @@ class App extends React.Component {
     }
   }
 
+  getNextNewsId() {
+    var productWithHighestId = this.state.noticias.sort((a, b) => b.id - a.id)[0];
+    if (productWithHighestId === undefined) {
+      return 1; // List is empty, so use 1 as first product id.
+    } else {
+      return productWithHighestId.id + 1; // List is not empty, increase one to the highest id for the next product.
+    }
+  }
+
   goToEdit = (subseccion, obj) => {
     console.log(obj);
     switch (subseccion) {
@@ -80,6 +92,12 @@ class App extends React.Component {
       case 'multimedia':
         this.setState({
           section: 662,
+          contenidoToEdit: obj
+        });
+        break;
+      case 'news':
+        this.setState({
+          section: 660,
           contenidoToEdit: obj
         });
         break;
@@ -128,7 +146,7 @@ class App extends React.Component {
     })
   }
 
-  
+
 
   addPilot = (newPilot) => {
     this.setState({
@@ -139,7 +157,7 @@ class App extends React.Component {
     });
   }
 
-  
+
   deletePilot = (id) => {
     this.setState({
       pilotos: this.state.pilotos.filter(item => item.id !== id)
@@ -154,6 +172,24 @@ class App extends React.Component {
       return productWithHighestId.id + 1; // List is not empty, increase one to the highest id for the next product.
     }
   }
+
+  addNews = (newNews) => {
+    this.setState({
+      multimedia: [...this.state.noticias, {
+        id: this.getNextNewsId(),
+        ...newNews
+      }]
+    });
+  }
+
+  editNews = (id, newNewsData) => {
+    this.setState({
+      noticias: this.state.noticias.map(item => item.id === id ? newNewsData : item),
+      section: 660,
+      contenidoToEdit: null
+    })
+  }
+
 
   addBlog = (newBlog) => {
     this.setState({
@@ -217,6 +253,16 @@ class App extends React.Component {
           section: 6
         });
         break;
+      case 660:
+        this.setState({
+          section: 660
+        });
+        break;
+      case 661:
+        this.setState({
+          section: 661
+        });
+        break;
       case 662:
         this.setState({
           section: 662
@@ -273,8 +319,16 @@ class App extends React.Component {
     if (this.state.section === 6) {
       return <Multimedia />;
     }
+
+    if (this.state.section === 660) {
+      return <NewsForm goToMenu={this.goToMenu} news={this.state.newsToEdit} />;
+    }
+    if (this.state.section === 661) {
+      return <NewsList />;
+    }
+
     if (this.state.section === 662) {
-      return <MultimediaForm goToMenu={this.goToMenu} contenido={this.state.contenidoToEdit}/>;
+      return <MultimediaForm goToMenu={this.goToMenu} contenido={this.state.contenidoToEdit} />;
     }
     if (this.state.section === 663) {
       return <MultimediaList />;
@@ -301,7 +355,7 @@ class App extends React.Component {
           <MenuPrincipal goToMenu={this.goToMenu} />
           <Header />
         </header>
-        <AppContext.Provider value={{          
+        <AppContext.Provider value={{
           noticias: this.state.noticias,
           pilotos: this.state.pilotos,
           blogs: this.state.blogs,

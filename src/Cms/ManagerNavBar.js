@@ -20,7 +20,7 @@ class ManagerNavBar extends React.Component {
             <Link to="/manager/abm_multimedia" className="nav-link" onClick={(e) => this.context.goToMenu(663, e)}>ABM MULTIMEDIA <span className="sr-only"></span></Link>
             </li>
             <li className="nav-item active">
-            <Link to="/home" className="nav-link" onClick={(e) => this.context.goToMenu(1, e)}>ABM NEWS <span className="sr-only"></span></Link>
+            <Link to="/manager/abm_noticias" className="nav-link" onClick={(e) => this.context.goToMenu(661, e)}>ABM NEWS <span className="sr-only"></span></Link>
             </li>
           </ul>
         </nav>
