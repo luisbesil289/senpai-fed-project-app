@@ -6,9 +6,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-
-
-
 const styles = theme => ({
   container: {
     display: 'flex',
@@ -19,7 +16,7 @@ const styles = theme => ({
     padding: theme.spacing(3, 2),
     margin: theme.spacing(2, 0),
     width: '100%'
-    
+
   },
   textField: {
     marginRight: theme.spacing(4),
@@ -41,10 +38,14 @@ const styles = theme => ({
   }
 });
 
+
 class PilotForm extends React.Component {
   static contextType = AppContext;
   constructor(props) {
     super(props);
+    this.state = {
+      dialogMessage: false,
+    };
     if (this.props.piloto) {
       // It is an Animal EDIT.
       // The form starts with the values of the animal to edit.
@@ -52,13 +53,14 @@ class PilotForm extends React.Component {
         id: this.props.piloto.id,
         nombre: this.props.piloto.nombre,
         nick: this.props.piloto.nick,
-        foto: this.props.piloto.foto,        
+        foto: this.props.piloto.foto,
         fecha: this.props.piloto.fecha,
         pais: this.props.piloto.pais,
         equipo: this.props.piloto.equipo,
         podios: this.props.piloto.podios,
         puntos: this.props.piloto.puntos,
-        descripcion: this.props.piloto.descripcion
+        descripcion: this.props.piloto.descripcion,
+        
       };
     } else {
       // It is a NEW Animal.
@@ -72,20 +74,26 @@ class PilotForm extends React.Component {
         equipo: '',
         podios: '',
         puntos: '',
-        descripcion: ''
+        descripcion: '',
+        
       };
     }
   }
 
+
+
+
   handleChange = xxx => event => {
     this.setState({ [xxx]: event.target.value });
+    this.setState({dialogMessage: false});
+    
   };
 
   cancelForm = () => {
     this.context.goToMenu(666);
   };
 
-  handleSubmit = () => {
+  handleSubmit = () => {    
     if (this.props.piloto) {
       // It is an Animal EDIT.
       // Use editAnimal method.
@@ -93,18 +101,18 @@ class PilotForm extends React.Component {
         id: this.state.id,
         nombre: this.state.nombre,
         nick: this.state.nick,
-        foto: this.props.piloto.foto,        
+        foto: this.props.piloto.foto,
         fecha: this.state.fecha,
         pais: this.state.pais,
         equipo: this.state.equipo,
         podios: this.state.podios,
         puntos: this.state.puntos,
-        descripcion: this.state.descripcion        
-      });     
+        descripcion: this.state.descripcion
+      });
     } else {
       this.context.addPilot({
         nombre: this.state.nombre,
-        foto:'assets/shadow_pilot.png',
+        foto: 'assets/shadow_pilot.png',
         nick: this.state.nick,
         fecha: this.state.fecha,
         pais: this.state.pais,
@@ -116,16 +124,22 @@ class PilotForm extends React.Component {
     }
 
     this.props.goToMenu(665);
+
   }
 
+
+
   render() {
+    const { dialogMessage } = this.state;
+    console.log(dialogMessage);
     return (
       <form className={this.props.classes.container} noValidate autoComplete="off">
         <Paper className={this.props.classes.paper}>
+
           <Typography variant="h5">
             Pilot information
-          </Typography>          
-         
+          </Typography>
+
           <TextField
             id="nombre"
             label="Nombre"
@@ -209,10 +223,12 @@ class PilotForm extends React.Component {
         </Button>
           <Button variant="contained" color="primary" className={this.props.classes.button} onClick={this.handleSubmit}>
             {this.props.piloto ? 'Save' : 'Create'}
-          </Button>
+          </Button>          
         </div>
       </form>
     );
   }
+
+
 }
 export default withStyles(styles)(PilotForm);
