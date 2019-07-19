@@ -1,5 +1,7 @@
 import React from 'react';
 import AppContext from '../AppContext';
+import Moment from 'react-moment';
+import moment from 'moment';
 import './Blog.css';
 import BlogCard from './BlogCard';
 
@@ -12,24 +14,36 @@ class Blog extends React.Component {
       id: '',
       titulo: '',
       usuario: '',
-      fecha: '',
+      fecha:moment(new Date()).format("YYYY-MM-DD hh:mm:ss"), /* moment(new Date().getDate()).format('YYYY-MM-DD'), */
       foto: '',
       descripcion: '',
+      filtrada :  [],
     };
   }
-
+  componentWillMount() {
+    this.setState({
+      filtrada: this.context.blogs
+      .filter(item => this.state.id === null || this.state.id === '' || this.state.id === item.id)    
+      .sort((a, b) => (a.fecha > b.fecha) ? 1 : -1)
+    })
+  }
+  
   handleChange = xxx => event => {
-    console.log(xxx);
     this.setState({ [xxx]: event.target.value });
   };
 
-  handleClick = e => {
-   /*  this.setState({ ['fecha']: () }); */
+  handleClick = (archive) => {   
+    this.setState({
+      filtrada: this.context.blogs
+      .filter(item => this.state.fecha === null || this.state.fecha === '' || moment(archive.fecha).format("YYYY-MM") === moment(item.fecha).format("YYYY-MM"))    
+      .sort((a, b) => (moment(a.fecha).format("YYYY-MM") > moment(b.fecha).format("YYYY-MM")) ? 1 : -1)
+      
+    })
   };
 
   addToBlog = () => {
+   
     this.context.addBlog({
-      id: this.state.id,
       titulo: this.state.titulo,
       usuario: this.state.usuario,
       fecha: this.state.fecha,
@@ -56,8 +70,8 @@ class Blog extends React.Component {
   }
 
   render() {
-    const archives = [     
-      'March 2020',
+    var archives = [     
+     /*  'March 2020',
       'February 2020',
       'January 2020',
       'December 2019',
@@ -68,14 +82,17 @@ class Blog extends React.Component {
       'July 2019',
       'June 2019',
       'May 2019',
-      'April 2019',
+      'April 2019', */
     ];
- 
 
-    var filteredList = this.context.blogs
-    .filter(item => this.state.fecha === null || this.state.fecha === '' || this.state.fecha === item.fecha)    
+    
+
+    var filteredList = this.state.filtrada
+    
+    archives = this.context.blogs
+    .filter(item => this.state.id === null || this.state.id === '' || this.state.id === item.id)    
     .sort((a, b) => (a.fecha > b.fecha) ? 1 : -1)
-       
+    
     return (
       <div className="container">
         <div className="row">
@@ -85,18 +102,18 @@ class Blog extends React.Component {
 
             </div>
             <hr />
-            {filteredList.map(blog => <BlogCard goToBlogComentarios={this.props.goToBlogComentarios} blog={blog} key={blog.id} addToBlogComentarios={this.addToBlogComentarios} />).sort()}
+          
+            {filteredList.map(blog => <BlogCard goToBlogComentarios={this.props.goToBlogComentarios} blog={blog} key={blog.id} addToBlogComentarios={this.addToBlogComentarios} />)}
+           
             <hr />
             <br />
           </div>
           <div className="col col-3 col-sm-3 col-md-3">
-            <ul className="list-group">Archive
-           {/* 
-              
-             {archives.map((archive, index) => <li className="list-group-item" id="liVertical" onClick={this.handleClick} key={index}> {archive}</li>)}
+            <ul className="list-group">Archive  
+             
+            {archives.map((archive, index) => <button type="button" className="btn btn-primary btn-block" onClick={(e) => this.handleClick(archive,e)} key={index}><Moment format="MMM YYYY">{archive.fecha}</Moment></button>)} 
+           
             
-            */}                                                                                          
-            {archives.map((archive, index) => <button type="button" className="btn btn-primary btn-block" onClick={(e) => this.handleClick(e)} key={index}> {archive}</button>)} 
             </ul>
             <br />
           </div>
@@ -117,14 +134,8 @@ class Blog extends React.Component {
                   <div className="invalid-feedback">Please fill out this field.</div>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="text">Familia</label>
+                  <label htmlFor="text">Usuario</label>
                   <input type="uname" className="form-control" id="fami" value={this.state.usuario} onChange={this.handleChange('usuario')} placeholder="Ingrese Nombre/Apellido de su Familia" name="fami" required></input>
-                  <div className="valid-feedback">Valid.</div>
-                  <div className="invalid-feedback">Please fill out this field.</div>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="inputFecha">Fecha de Adopcion</label>
-                  <input type="date" className="form-control" id="fech" value={this.state.fecha} onChange={this.handleChange('fecha')} required></input>
                   <div className="valid-feedback">Valid.</div>
                   <div className="invalid-feedback">Please fill out this field.</div>
                 </div>

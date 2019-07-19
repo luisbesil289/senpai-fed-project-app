@@ -201,6 +201,7 @@ class App extends React.Component {
   }
 
   addBlog = (newBlog) => {
+    console.log(newBlog);
     this.setState({
       blogs: [...this.state.blogs, {
         id: this.getNextBlogId(),

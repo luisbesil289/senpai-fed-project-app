@@ -1,5 +1,6 @@
 import React from 'react'
 import AppContext from '../AppContext';
+
 import './Blog.css';
 import BlogComentario from './BlogComentario';
 
@@ -10,7 +11,7 @@ class BlogCard extends React.Component {
         this.state = {
             id: '',
             usuario: '',
-            fecha: '2019-07-07',
+            fecha: '',
             comentario: '',
         };
     }
@@ -28,7 +29,7 @@ class BlogCard extends React.Component {
 
     render() {
         var coments = this.props.blog.comentarios
-        return (
+       return (
             <div className="row">
                 <div className="col col-12 col-md-4">
                     <div className="featured-thumbnail">
@@ -37,7 +38,7 @@ class BlogCard extends React.Component {
                 </div>
                 <div className="col col-12 col-md-8">
                     <h5 className="text-title">{this.props.blog.titulo}</h5>
-                    <p className="text-blog"><small className="text-blog">Usuario {this.props.blog.usuario} | Última actualización {this.props.blog.fecha}</small></p>
+                    <p className="text-blog"><small className="text-blog">Usuario {this.props.blog.usuario} | Created:{this.props.blog.fecha}</small></p>
                     <hr />
                     <p className="text-blog">{this.props.blog.descripcion}</p>
                     <hr />
@@ -65,7 +66,7 @@ class BlogCard extends React.Component {
                             </div>
                             <form id="ModalFormBlog" className="was-validated">
                                 <div className="form-group">
-                                    <label htmlFor="text">Familia</label>
+                                    <label htmlFor="text">Usuario</label>
                                     <input type="uname" className="form-control" id="usuario" value={this.state.usuario} onChange={this.handleChange('usuario')} placeholder="Ingrese Nombre/Apellido de su Familia" name="fami" required></input>
                                     <div className="valid-feedback">Valid.</div>
                                     <div className="invalid-feedback">Please fill out this field.</div>
