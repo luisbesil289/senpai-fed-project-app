@@ -14,35 +14,36 @@ class Blog extends React.Component {
       id: '',
       titulo: '',
       usuario: '',
-      fecha:moment(new Date()).format("YYYY-MM-DD hh:mm:ss"), /* moment(new Date().getDate()).format('YYYY-MM-DD'), */
+      fecha: moment(new Date()).format("YYYY-MM-DD hh:mm:ss"),
       foto: '',
       descripcion: '',
-      filtrada :  [],
+      filtrada: [],
     };
   }
+
+
   componentWillMount() {
     this.setState({
       filtrada: this.context.blogs
-      .filter(item => this.state.id === null || this.state.id === '' || this.state.id === item.id)    
-      .sort((a, b) => (a.fecha > b.fecha) ? 1 : -1)
+        .filter(item => this.state.id === null || this.state.id === '' || this.state.id === item.id)
+        .sort((a, b) => (a.fecha > b.fecha) ? 1 : -1)
     })
   }
-  
+
   handleChange = xxx => event => {
     this.setState({ [xxx]: event.target.value });
   };
 
-  handleClick = (archive) => {   
+  handleClick = (archive) => {
     this.setState({
       filtrada: this.context.blogs
-      .filter(item => this.state.fecha === null || this.state.fecha === '' || moment(archive.fecha).format("YYYY-MM") === moment(item.fecha).format("YYYY-MM"))    
-      .sort((a, b) => (moment(a.fecha).format("YYYY-MM") > moment(b.fecha).format("YYYY-MM")) ? 1 : -1)
-      
+        .filter(item => this.state.fecha === null || this.state.fecha === '' || moment(archive.fecha).format("YYYY-MM") === moment(item.fecha).format("YYYY-MM"))
+        .sort((a, b) => (moment(a.fecha).format("YYYY-MM") > moment(b.fecha).format("YYYY-MM")) ? 1 : -1)
     })
   };
 
   addToBlog = () => {
-   
+
     this.context.addBlog({
       titulo: this.state.titulo,
       usuario: this.state.usuario,
@@ -70,50 +71,27 @@ class Blog extends React.Component {
   }
 
   render() {
-    var archives = [     
-     /*  'March 2020',
-      'February 2020',
-      'January 2020',
-      'December 2019',
-      'November 2019',
-      'October 2019',
-      'September 2019',
-      'August 2019',
-      'July 2019',
-      'June 2019',
-      'May 2019',
-      'April 2019', */
-    ];
 
-    
 
-    var filteredList = this.state.filtrada
-    
-    archives = this.context.blogs
-    .filter(item => this.state.id === null || this.state.id === '' || this.state.id === item.id)    
-    .sort((a, b) => (a.fecha > b.fecha) ? 1 : -1)
-    
+    var archives = this.context.blogs
+      .filter(item => this.state.id === null || this.state.id === '' || this.state.id === item.id)
+      .sort((a, b) => (a.fecha > b.fecha) ? 1 : -1)
+
     return (
       <div className="container">
         <div className="row">
           <div className="col col-9 col-sm-9 col-md-9">
             <div className="btn-group">
               <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#myModal2">Nuevo</button>
-
             </div>
             <hr />
-          
-            {filteredList.map(blog => <BlogCard goToBlogComentarios={this.props.goToBlogComentarios} blog={blog} key={blog.id} addToBlogComentarios={this.addToBlogComentarios} />)}
-           
+            {this.state.filtrada.map(blog => <BlogCard goToBlogComentarios={this.props.goToBlogComentarios} blog={blog} key={blog.id} addToBlogComentarios={this.addToBlogComentarios} />)}
             <hr />
             <br />
           </div>
           <div className="col col-3 col-sm-3 col-md-3">
-            <ul className="list-group">Archive  
-             
-            {archives.map((archive, index) => <button type="button" className="btn btn-primary btn-block" onClick={(e) => this.handleClick(archive,e)} key={index}><Moment format="MMM YYYY">{archive.fecha}</Moment></button>)} 
-           
-            
+            <ul className="list-group text-title" >Archive
+            {archives.map((archive, index) => <button type="button" className="btn btn-primary btn-block" onClick={(e) => this.handleClick(archive, e)} key={index}><Moment format="MMM YYYY">{archive.fecha}</Moment></button>)}
             </ul>
             <br />
           </div>

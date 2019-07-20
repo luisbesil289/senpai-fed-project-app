@@ -18,18 +18,19 @@ class BlogCard extends React.Component {
 
     handleChange = xxx => event => {
         this.setState({ [xxx]: event.target.value });
-    };  
+    };
 
-    addToBlogComentarios = (unBlog) => {        
-        this.props.addToBlogComentarios(unBlog,{
+    addToBlogComentarios = (unBlog) => {
+        this.props.addToBlogComentarios(unBlog, {
             usuario: this.state.usuario,
             fecha: this.state.fecha,
-            comentario: this.state.comentario});
+            comentario: this.state.comentario
+        });
     }
 
     render() {
         var coments = this.props.blog.comentarios
-       return (
+        return (
             <div className="row">
                 <div className="col col-12 col-md-4">
                     <div className="featured-thumbnail">
@@ -45,16 +46,14 @@ class BlogCard extends React.Component {
                     <p className="text-blog">comentarios:</p>
                     <div>
                         <hr />
-                        {coments.map(comentario => <BlogComentario comentario={comentario} key={comentario.id} addToBlogComentarios={this.props.addToBlogComentarios}/>)}
+                        {coments.map(comentario => <BlogComentario comentario={comentario} key={comentario.id} addToBlogComentarios={this.props.addToBlogComentarios} />)}
                     </div>
                     <div>
                         <hr />
                         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#ModalComentario">Comentar...</button>
-
                     </div>
-
                 </div>
-
+     
                 {/*  MODAL */}
                 <div className="modal fade" id="ModalComentario" role="form">
                     <div className="modal-dialog">

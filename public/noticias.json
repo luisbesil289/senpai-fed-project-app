@@ -14,12 +14,12 @@
     "id": 2,
     "active": "carousel-item",
     "tipo": "news",
-    "foto": "assets/Florida.jpg",
-    "video": null,
-    "titulo": "Florida",
-    "bajada": "Primera reunión de pilotos del Uruguay",
-    "fecha": "2018-5-16",
-    "nota": "Lorem ipsum dolor sit amet, consectetur adipis cingelit.Etiam lacinia elit et placerat finibus.Praesent justo metus, pharetra vel nibh sit amet, tifghnt posuere nulla.",
+    "foto": null,
+    "video": "assets/1028166094.mp4",
+    "titulo": "Curso de Fotografía",
+    "bajada": "Primer curso de fotografía aerea",
+    "fecha": "2017-5-16",
+    "nota": "Aprende a documentar la realidad desde una nueva perspectiva. El uso de drones para fotografía ha cambiado completamente la perspectiva de los fotografos",
     "publicacion": "2018-5-16"
   }, {
     "id": 3,

@@ -3,14 +3,14 @@ import AppContext from '../AppContext';
 import './Multimedia.css';
 import MultimediaCard from './MultimediaCard'
 
-
 class Multimedia extends React.Component {
     static contextType = AppContext;
     constructor(props) {
         super(props)
         this.state = {
             titulo: 'EVENTS',
-            seccion: null
+            seccion: null,
+            progress: 1,
         };
     }
 
@@ -18,18 +18,16 @@ class Multimedia extends React.Component {
         this.setState({ seccion: event.target.value });
     }
 
-    render() {
-
-
+        render() {
         var filteredList = this.context.multimedia
             .filter(item => this.state.seccion === null || this.state.seccion === '*' || this.state.seccion === item.seccion)
             .sort((a, b) => (a.fecha > b.fecha) ? 1 : -1)
 
 
         return (
-            <div>
+            <div>f
                 <div>
-                    <div className="pilots_title">
+                    <div className="pilots_title">                        
                         <span>CONTENIDO MULTIMEDIA</span></div>
                     <div className="filtroMultimedia"><span className="tituloFiltroMultimedia">FILTRAR CONTENIDO</span>
                         <select className="custom-select custom-select-md" onChange={this.changeSeccionFilter}>
@@ -41,7 +39,7 @@ class Multimedia extends React.Component {
                     </div>
                     <div className="container multimediaContainer">
                         <div className="row multimediaRow">
-                            {filteredList.map(contenido => <MultimediaCard contenido={contenido} key={contenido.id} />)}
+                            {filteredList.map(contenido => <MultimediaCard contenido={contenido} key={contenido.id} move={this.move}/>)}
                         </div>
                     </div>
                 </div>

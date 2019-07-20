@@ -17,8 +17,10 @@
 }
 
 .text-title{
+  font-size: 20px;
   color: rgb(27, 16, 66);
   font-weight: bold;
+  padding: 10px;
 }
 .img-blog{
   width: 97%;
