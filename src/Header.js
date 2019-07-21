@@ -9,8 +9,8 @@ class Header extends React.Component {
                 <div>
                     <img src="assets/jumbo.jpg" className="bg-image" alt="Falta img"></img>
                     </div>
-                <div className="bg-text">
-                    <h1> DRONE </h1>
+                <div>
+                    <h1 className="bg-text"> DRONE </h1>
                 </div>
             </div>
         )

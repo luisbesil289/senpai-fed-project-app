@@ -14,10 +14,10 @@ class Home extends React.Component {
             <div className="">
                 <div className="container">
                     <div className="row justify-content-center">
-                        <div className="col-sm-6 col-md-6">
+                        <div className="col-sm-12 col-md-6 d-none d-sm-block">
                             <img src="assets/ChaseField.jpg" className="shop-image img img-raised" alt="falta img"></img>
                         </div>
-                        <div className="col-sm-6 col-md-6">
+                        <div className="col-sm-12 col-md-6">
                             <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
                                 <div className="carousel-inner">
                                     {news.map(noticia => <News noticia={noticia} key={noticia.id} />)}
